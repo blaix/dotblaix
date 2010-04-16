@@ -1,0 +1,18 @@
+[color]
+  ui = auto
+
+[alias]
+  co = checkout
+  st = status
+  ci = commit
+
+[apply]
+  whitespace = nowarn
+
+[user]
+  name = Justin Blake
+  email = justin@megablaix.com
+
+[github]
+  user = blaix
+  token = *secret*
