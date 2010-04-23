@@ -12,7 +12,6 @@ set backspace=start,indent
 set number        " turn on line numbers
 set cursorline    " highlight current line
 syntax on
-colorscheme vividchalk
 
 " other settings, mostly stolen from bill
 set scrolloff=3   " keep 3 lines when scrolling
@@ -63,10 +62,9 @@ let g:fuzzy_ignore='*.pyc;*.png;*.jpg;*.gif;*.sql;*.log;*.data;*.s19'
 let g:fuzzy_ceiling=100000
 let g:fuzzy_matching_limit=100   "bump performance up a tad
 
-" No distractions
 if has("gui_running")
   set guioptions-=T " hide toolbar
-
+  colorscheme vividchalk
 "  " Full screen
 "  set fuoptions=maxvert,maxhorz
 "  au GUIEnter * set fullscreen
