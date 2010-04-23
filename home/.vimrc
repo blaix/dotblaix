@@ -35,7 +35,7 @@ map ,y "+y
 map ,d :execute 'NERDTreeToggle ' . getcwd()<cr>
 
 " Updating .vimrc
-map ,v :vs ~/.vimrc<cr>
+map ,ve :vs ~/.vimrc<cr>
 map ,vu :source ~/.vimrc<cr>:exe ":echo 'vimrc reloaded'"<cr>
 
 " Viewport controls
