@@ -1,1 +1,6 @@
 shell -${SHELL}
+startup_message off
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< "
