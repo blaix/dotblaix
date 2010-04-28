@@ -1,5 +1,6 @@
 shell -${SHELL}
 startup_message off
+defscrollback 500
 
 hardstatus on
 hardstatus alwayslastline
