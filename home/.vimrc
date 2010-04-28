@@ -9,9 +9,11 @@ set expandtab
 set backspace=start,indent
 
 " Layout settings
+set t_Co=256 
 set number        " turn on line numbers
 set cursorline    " highlight current line
 syntax on
+colorscheme vividchalk
 
 " other settings, mostly stolen from bill
 set scrolloff=3   " keep 3 lines when scrolling
@@ -64,7 +66,6 @@ let g:fuzzy_matching_limit=100   "bump performance up a tad
 
 if has("gui_running")
   set guioptions-=T " hide toolbar
-  colorscheme vividchalk
 "  " Full screen
 "  set fuoptions=maxvert,maxhorz
 "  au GUIEnter * set fullscreen
