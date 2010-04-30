@@ -1,7 +1,8 @@
 shell -${SHELL}
 startup_message off
-defscrollback 500
+defscrollback 1000
+caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
 
 hardstatus on
 hardstatus alwayslastline
-hardstatus string "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< "
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%c %{g}]'
