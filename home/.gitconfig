@@ -16,3 +16,6 @@
 [github]
   user = blaix
   token = *secret*
+
+[branch]
+	autosetuprebase = always
