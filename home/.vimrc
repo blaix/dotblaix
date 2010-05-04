@@ -12,6 +12,7 @@ set backspace=start,indent
 set t_Co=256 
 set number        " turn on line numbers
 set cursorline    " highlight current line
+set ruler         " show current line/column number in status line
 syntax on
 colorscheme vividchalk
 
@@ -59,20 +60,19 @@ noremap <C-right> :bnext<cr>
 noremap <C-down> :bd<cr>
 
 " FuzzyFinder
-map ,t :FuzzyFinderTextMate<cr>
-let g:fuzzy_ignore='*.pyc;*.png;*.jpg;*.gif;*.sql;*.log;*.data;*.s19'
-let g:fuzzy_ceiling=100000
-let g:fuzzy_matching_limit=100   "bump performance up a tad
+map ,t :FufFile<cr>
 
 if has("gui_running")
   set guioptions-=T " hide toolbar
-"  " Full screen
+
+"  " Default to Full screen
 "  set fuoptions=maxvert,maxhorz
 "  au GUIEnter * set fullscreen
-"
-"  " with no scrollbars no matter what
-"  set guioptions-=r
-"  set guioptions-=R
-"  set guioptions-=l
-"  set guioptions-=L
+
+  " no scrollbars no matter what
+  set guioptions-=r
+  set guioptions-=R
+  set guioptions-=l
+  set guioptions-=L
 endif
+
