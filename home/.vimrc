@@ -19,6 +19,19 @@ colorscheme vividchalk
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" Remap the tab key to do autocompletion or indentation depending on the
+" context (from http://bitbucket.org/garybernhardt/dotfiles/src/tip/.vimrc)
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
+
 " other settings, mostly stolen from bill
 set scrolloff=3   " keep 3 lines when scrolling
 set vb t_vb=      " turn off error beep/flash
