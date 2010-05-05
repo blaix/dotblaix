@@ -16,6 +16,9 @@ set ruler         " show current line/column number in status line
 syntax on
 colorscheme vividchalk
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 " other settings, mostly stolen from bill
 set scrolloff=3   " keep 3 lines when scrolling
 set vb t_vb=      " turn off error beep/flash
@@ -25,6 +28,10 @@ set nowritebackup " I mean it do not make a bacukp file ever
 set nowrap        " stop lines from wrapping
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
 set ttyfast         " smoother changes
+
+" Make searches case-sensitive only if they contain upper-case characters
+set ignorecase
+set smartcase
 
 " retain selection after increasing/decreasing indent
 vnoremap > >gv
