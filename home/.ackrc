@@ -1,1 +1,2 @@
 --type-set=haml=.haml
+--type-add=php=.inc
