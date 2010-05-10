@@ -1,4 +1,4 @@
-export PATH="~/.gem/ruby/1.8/bin:/usr/local/bin:$PATH"
+export PATH="~/bin:~/.gem/ruby/1.8/bin:/usr/local/bin:$PATH"
 export EDITOR=vim
 
 # Set up git tab completion and show branch name in command prompt
