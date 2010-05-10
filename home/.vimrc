@@ -5,8 +5,8 @@ set tabstop=2
 set smarttab
 set shiftwidth=2
 set autoindent
+set smartindent
 set expandtab
-set backspace=start,indent
 
 " Layout settings
 set t_Co=256 
@@ -15,6 +15,7 @@ set cursorline    " highlight current line
 set ruler         " show current line/column number in status line
 syntax on
 colorscheme vividchalk
+set statusline=%F%m%r\ %y\ [%l/%L\ %v]
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -41,14 +42,16 @@ set nowritebackup " I mean it do not make a bacukp file ever
 set nowrap        " stop lines from wrapping
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
 set ttyfast         " smoother changes
+set wildmenu
+set ls=2            " allways show status line
 
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
 set smartcase
 
 " retain selection after increasing/decreasing indent
-vnoremap > >gv
-vnoremap < <gv
+vmap > >gv
+vmap < <gv
 
 " copy/paste
 map ,p "+gp
@@ -74,20 +77,22 @@ map ,rp :w<cr>:!python %<cr>
 " Turn off search highlights
 map <C-n> :noh<cr>
 
-" Manage buffers
-noremap <C-left> :bprev<cr>
-noremap <C-right> :bnext<cr>
-noremap <C-down> :bd<cr>
-
 " FuzzyFinder
-map ,t :FufFile<cr>
+" Recursive hack from http://intraspirit.net/scratchpad/a-simple-fuzzyfinder-improvement/
+map ,t :FufFileRecursive<cr>
+
+" ShowFunc plugin
+map ,f <Plug>ShowFunc
+
+" TextMate's cmd-enter feature
+imap <D-CR> <esc>o
 
 if has("gui_running")
   set guioptions-=T " hide toolbar
 
 "  " Default to Full screen
-"  set fuoptions=maxvert,maxhorz
-"  au GUIEnter * set fullscreen
+  set fuoptions=maxvert,maxhorz
+  au GUIEnter * set fullscreen
 
   " no scrollbars no matter what
   set guioptions-=r
@@ -95,4 +100,12 @@ if has("gui_running")
   set guioptions-=l
   set guioptions-=L
 endif
+
+" Abbreviations for ERB
+:iab erif  <% if %><Left><Left><Left>
+:iab erend <% end %><c-d>
+:iab <%=   <%= %><Left><Left><Left>
+
+" Other abbreviations
+:iab end end<c-d>
 
