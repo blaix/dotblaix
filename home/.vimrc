@@ -106,6 +106,17 @@ endif
 :iab erend <% end %><c-d>
 :iab <%=   <%= %><Left><Left><Left>
 
+" Abbreviations for cucumber
+:iab fea 
+\Feature: 
+\<CR>  In order
+\<CR>As a 
+\<CR>I want <Up><Up><Right><Right>
+
 " Other abbreviations
 :iab end end<c-d>
+
+" Custom filetypes
+filetype on
+au BufNewFile,BufRead *.ru set filetype=ruby
 
