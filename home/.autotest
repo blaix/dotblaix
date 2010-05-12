@@ -1,0 +1,12 @@
+begin
+  require 'autotest/growl'
+rescue LoadError
+  # Don't really care if growl isn't around.
+end
+
+Autotest.add_hook(:initialize) do |autotest|
+  %w(.git .DS_Store db log tmp .sqlite3 rerun.txt).each do |exception|
+    autotest.add_exception(exception)
+  end
+end
+
