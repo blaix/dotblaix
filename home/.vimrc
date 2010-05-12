@@ -113,6 +113,11 @@ endif
 \<CR>As a 
 \<CR>I want <Up><Up><Right><Right>
 
+" Abbreviations for ruby
+:iab def 
+\def
+\<CR>end<Up>
+
 " Other abbreviations
 :iab end end<c-d>
 
