@@ -90,11 +90,14 @@ map ,t :FufFileRecursive<cr>
 map ,f <Plug>ShowFunc
 
 if has("gui_running")
-  set guioptions-=T " hide toolbar
 
-"  " Default to Full screen
-  set fuoptions=maxvert,maxhorz
+  " Default to Full screen
+  set lines=999 columns=999
   au GUIEnter * set fullscreen
+
+  set guioptions-=T " hide toolbar
+  set guioptions-=m " hide the menu
+  set guioptions-=F " hide footer (gvim)
 
   " no scrollbars no matter what
   set guioptions-=r
