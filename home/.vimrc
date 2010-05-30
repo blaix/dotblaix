@@ -1,3 +1,8 @@
+
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
 let mapleader=","
 
 " Indent with 2 spaces. Auto-indent.
@@ -34,7 +39,7 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 " other settings, mostly stolen from bill
-set scrolloff=3   " keep 3 lines when scrolling
+set scrolloff=5   " keep 3 lines when scrolling
 set vb t_vb=      " turn off error beep/flash
 set nobackup      " do not keep a backup file
 set noswapfile    " do not make a swap file
@@ -84,9 +89,6 @@ map ,t :FufFileRecursive<cr>
 " ShowFunc plugin
 map ,f <Plug>ShowFunc
 
-" TextMate's cmd-enter feature
-imap <D-CR> <esc>o
-
 if has("gui_running")
   set guioptions-=T " hide toolbar
 
@@ -117,9 +119,6 @@ endif
 :iab def 
 \def
 \<CR>end<Up>
-
-" Other abbreviations
-:iab end end<c-d>
 
 " Custom filetypes
 filetype on
