@@ -20,6 +20,7 @@ set cursorline    " highlight current line
 set ruler         " show current line/column number in status line
 syntax on
 colorscheme vividchalk
+set background=dark
 set statusline=%F%m%r\ %y\ [%l/%L\ %v]
 
 " allow backspacing over everything in insert mode
