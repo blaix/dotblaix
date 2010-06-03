@@ -50,7 +50,10 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
 set ttyfast         " smoother changes
 set wildmenu
 set ls=2            " always show status line
-set spell           " enable spell checker
+
+" spell checker
+map ,s :set spell!<cr>
+set spell           " enabled by default
 
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
