@@ -44,12 +44,13 @@ set scrolloff=5   " keep 3 lines when scrolling
 set vb t_vb=      " turn off error beep/flash
 set nobackup      " do not keep a backup file
 set noswapfile    " do not make a swap file
-set nowritebackup " I mean it do not make a bacukp file ever
+set nowritebackup " I mean it do not make a backup file ever
 set nowrap        " stop lines from wrapping
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
 set ttyfast         " smoother changes
 set wildmenu
-set ls=2            " allways show status line
+set ls=2            " always show status line
+set spell           " enable spell checker
 
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
