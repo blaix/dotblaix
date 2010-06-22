@@ -1,11 +1,16 @@
+"----------------------------------------------------------------------------
+" These must be first, because they change other options as a side effect.
+"----------------------------------------------------------------------------
 
 " Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
 let mapleader=","
 
-" Indent with 2 spaces. Auto-indent.
+"----------------------------------------------------------------------------
+" Indentation: 2 spaces is where it's at! Tabs are for communists.
+"----------------------------------------------------------------------------
+
 set tabstop=2
 set smarttab
 set shiftwidth=2
@@ -13,18 +18,69 @@ set autoindent
 set smartindent
 set expandtab
 
-" Layout settings
-set t_Co=256 
+"----------------------------------------------------------------------------
+" Layout: I roll dark on light. Deal with THAT!
+"----------------------------------------------------------------------------
+
 set number        " turn on line numbers
 set cursorline    " highlight current line
 set ruler         " show current line/column number in status line
+set scrolloff=5   " keep 5 lines when scrolling
+
+set nowrap
 syntax on
-colorscheme vividchalk
-set background=dark
 set statusline=%F%m%r\ %y\ [%l/%L\ %v]
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+if has("gui_running")
+
+  " Use moria light theme with highlighted line number gutter
+  colorscheme moria
+  set background=light
+  highlight LineNr ctermbg=LightGrey guibg=LightGrey
+
+  " always show status line
+  set ls=2
+  
+  " Default to Full screen
+  set lines=999 columns=999
+  au GUIEnter * set fullscreen
+
+  set guioptions-=T " hide toolbar
+  set guioptions-=m " hide the menu
+  set guioptions-=F " hide footer (gvim)
+
+  " no scrollbars no matter what
+  set guioptions-=r
+  set guioptions-=R
+  set guioptions-=l
+  set guioptions-=L
+
+endif
+
+"----------------------------------------------------------------------------
+" Abbreviations: Not as cool as TextMate snippets.
+"----------------------------------------------------------------------------
+
+" ERB
+:iab erif  <% if %><Left><Left><Left>
+:iab erend <% end %><c-d>
+:iab <%=   <%= %><Left><Left><Left>
+
+" cucumber
+:iab fea 
+\Feature: 
+\<CR>  In order
+\<CR>As a 
+\<CR>I want <Up><Up><Right><Right>
+
+" ruby
+:iab def 
+\def
+\<CR>end<Up>
+
+"----------------------------------------------------------------------------
+" Auto-complete: TextMate WISHES it could do this!
+"----------------------------------------------------------------------------
 
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://bitbucket.org/garybernhardt/dotfiles/src/tip/.vimrc)
@@ -39,96 +95,77 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-" other settings, mostly stolen from bill
-set scrolloff=5   " keep 3 lines when scrolling
-set vb t_vb=      " turn off error beep/flash
-set nobackup      " do not keep a backup file
-set noswapfile    " do not make a swap file
-set nowritebackup " I mean it do not make a backup file ever
-set nowrap        " stop lines from wrapping
-set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
-set ttyfast         " smoother changes
-set wildmenu
-set ls=2            " always show status line
+"----------------------------------------------------------------------------
+" Custom Filetypes
+"----------------------------------------------------------------------------
 
-" spell checker
-map ,s :set spell!<cr>
-set spell           " enabled by default
+filetype on
 
-" Make searches case-sensitive only if they contain upper-case characters
-set ignorecase
-set smartcase
+au BufNewFile,BufRead *.ru set filetype=ruby " rackup files are ruby
+
+"----------------------------------------------------------------------------
+" Misc Mappings
+"----------------------------------------------------------------------------
+
+" Turn off search highlights
+map <C-n> :noh<cr>
+
+" Toggle NERDTree
+map <leader>d :execute 'NERDTreeToggle ' . getcwd()<cr>
+
+" Updating .vimrc
+map <leader>ve :vs ~/.vimrc<cr>
+map <leader>vu :source ~/.vimrc<cr>:exe ":echo 'vimrc reloaded'"<cr>
+
+" Viewport controls
+map <leader>h <C-w>h
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>l <C-w>l
+
+" Run current file
+map <leader>rr :w<cr>:!ruby %<cr>
+map <leader>rp :w<cr>:!python %<cr>
+
+" FuzzyFinder Recursive hack from:
+" http://intraspirit.net/scratchpad/a-simple-fuzzyfinder-improvement/
+map <leader>t :FufFileRecursive<cr>
+
+" ShowFunc plugin
+map <leader>f <Plug>ShowFunc
+
+" Toggle spellcheck
+map <leader>s :set spell!<cr>
 
 " retain selection after increasing/decreasing indent
 vmap > >gv
 vmap < <gv
 
-" copy/paste
-map ,p "+gp
-map ,y "+y
+"----------------------------------------------------------------------------
+" Misc Settings
+"----------------------------------------------------------------------------
 
-" Toggle NERDTree
-map ,d :execute 'NERDTreeToggle ' . getcwd()<cr>
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
-" Updating .vimrc
-map ,ve :vs ~/.vimrc<cr>
-map ,vu :source ~/.vimrc<cr>:exe ":echo 'vimrc reloaded'"<cr>
+" turn off error beep/flash
+set vb t_vb=
 
-" Viewport controls
-map ,h <C-w>h
-map ,j <C-w>j
-map ,k <C-w>k
-map ,l <C-w>l
+" never make a backup file ever
+set nobackup      
+set noswapfile    
+set nowritebackup 
 
-" Run current file
-map ,rr :w<cr>:!ruby %<cr>
-map ,rp :w<cr>:!python %<cr>
+" smoother changes
+set ttyfast
 
-" Turn off search highlights
-map <C-n> :noh<cr>
+" enable wildmenu
+set wildmenu
+set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
 
-" FuzzyFinder
-" Recursive hack from http://intraspirit.net/scratchpad/a-simple-fuzzyfinder-improvement/
-map ,t :FufFileRecursive<cr>
+" start with spellchecker turned on
+set spell
 
-" ShowFunc plugin
-map ,f <Plug>ShowFunc
-
-if has("gui_running")
-
-  " Default to Full screen
-  set lines=999 columns=999
-  au GUIEnter * set fullscreen
-
-  set guioptions-=T " hide toolbar
-  set guioptions-=m " hide the menu
-  set guioptions-=F " hide footer (gvim)
-
-  " no scrollbars no matter what
-  set guioptions-=r
-  set guioptions-=R
-  set guioptions-=l
-  set guioptions-=L
-endif
-
-" Abbreviations for ERB
-:iab erif  <% if %><Left><Left><Left>
-:iab erend <% end %><c-d>
-:iab <%=   <%= %><Left><Left><Left>
-
-" Abbreviations for cucumber
-:iab fea 
-\Feature: 
-\<CR>  In order
-\<CR>As a 
-\<CR>I want <Up><Up><Right><Right>
-
-" Abbreviations for ruby
-:iab def 
-\def
-\<CR>end<Up>
-
-" Custom filetypes
-filetype on
-au BufNewFile,BufRead *.ru set filetype=ruby
-
+" Make searches case-sensitive only if they contain upper-case characters
+set ignorecase
+set smartcase
