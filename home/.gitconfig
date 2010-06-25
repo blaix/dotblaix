@@ -18,4 +18,4 @@
   token = *secret*
 
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
