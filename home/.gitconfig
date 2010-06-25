@@ -6,9 +6,6 @@
   st = status
   ci = commit -v
 
-[apply]
-  whitespace = nowarn
-
 [user]
   name = Justin Blake
   email = justin@megablaix.com
