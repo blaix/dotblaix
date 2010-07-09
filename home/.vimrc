@@ -163,9 +163,6 @@ set ttyfast
 set wildmenu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
 
-" start with spellchecker turned on
-set spell
-
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
 set smartcase
