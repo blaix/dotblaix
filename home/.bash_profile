@@ -10,6 +10,9 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
 
 alias tree="tree -C"
+alias ll="ls -l"
+alias la="ls -a"
+alias lal="ls -al"
 
 if [[ -s ~/.bash_profile.local ]] ; then source ~/.bash_profile.local ; fi
 if [[ -s ~/.rvm/scripts/rvm    ]] ; then source ~/.rvm/scripts/rvm    ; fi
