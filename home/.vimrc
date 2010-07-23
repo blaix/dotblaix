@@ -19,7 +19,7 @@ set smartindent
 set expandtab
 
 "----------------------------------------------------------------------------
-" Layout: I roll dark on light. Deal with THAT!
+" Layout: I can never decide if I want to roll light on dark or vice versa.
 "----------------------------------------------------------------------------
 
 set number        " turn on line numbers
@@ -33,10 +33,13 @@ set statusline=%F%m%r\ %y\ [%l/%L\ %v]
 
 if has("gui_running")
 
-  " Use moria light theme with highlighted line number gutter
-  colorscheme moria
-  set background=light
-  highlight LineNr ctermbg=LightGrey guibg=LightGrey
+  "" Use moria light theme with highlighted line number gutter
+  "colorscheme moria
+  "set background=light
+  "highlight LineNr ctermbg=LightGrey guibg=LightGrey
+
+  colorscheme ir_black
+  set background=dark
 
   " always show status line
   set ls=2
