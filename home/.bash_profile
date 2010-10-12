@@ -3,6 +3,7 @@ if [[ -f ~/.bashrc ]]; then source ~/.bashrc; fi
 export PATH="~/bin:~/.gem/ruby/1.8/bin:/usr/local/bin:$PATH"
 export EDITOR=vim
 export CLICOLOR=1
+export AUTOFEATURE=true # always run cucumber features with autotest
 
 # Set up git tab completion and show branch name in command prompt
 source ~/.git-completion.bash
