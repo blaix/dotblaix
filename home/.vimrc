@@ -65,8 +65,9 @@ endif
 "----------------------------------------------------------------------------
 
 " ERB
-:iab erif  <% if %><Left><Left><Left>
-:iab erend <% end %><c-d>
+:iab eri <% if %><Left><Left><Left>
+:iab eru <% unless %><Left><Left><Left>
+:iab ere <% end %><c-d>
 :iab <%=   <%= %><Left><Left><Left>
 
 " cucumber
