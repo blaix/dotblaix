@@ -45,8 +45,8 @@ if has("gui_running")
   set ls=2
   
   " Default to Full screen
-  set lines=999 columns=999
-  au GUIEnter * set fullscreen
+  "set lines=999 columns=999
+  "au GUIEnter * set fullscreen
 
   set guioptions-=T " hide toolbar
   set guioptions-=m " hide the menu
@@ -72,9 +72,9 @@ endif
 " cucumber
 :iab fea 
 \Feature: 
-\<CR>  In order
+\<CR>  In order to
 \<CR>As a 
-\<CR>I want <Up><Up><Right><Right>
+\<CR>I want to <Up><Up><Right><Right>
 
 " ruby
 :iab def 
