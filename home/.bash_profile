@@ -14,6 +14,8 @@ alias tree="tree -C"
 alias ll="ls -l"
 alias la="ls -a"
 alias lal="ls -al"
+alias ffopen="open -a Firefox.app"
+alias bpreload="source ~/.bash_profile"
 
 if [[ -s ~/.bash_profile.local ]] ; then source ~/.bash_profile.local ; fi
 if [[ -s ~/.rvm/scripts/rvm    ]] ; then source ~/.rvm/scripts/rvm    ; fi
