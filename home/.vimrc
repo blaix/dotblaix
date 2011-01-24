@@ -31,35 +31,6 @@ set nowrap
 syntax on
 set statusline=%F%m%r\ %y\ [%l/%L\ %v]
 
-if has("gui_running")
-
-  "" Use moria light theme with highlighted line number gutter
-  "colorscheme moria
-  "set background=light
-  "highlight LineNr ctermbg=LightGrey guibg=LightGrey
-
-  colorscheme ir_black
-  set background=dark
-
-  " always show status line
-  set ls=2
-  
-  " Default to Full screen
-  "set lines=999 columns=999
-  "au GUIEnter * set fullscreen
-
-  set guioptions-=T " hide toolbar
-  set guioptions-=m " hide the menu
-  set guioptions-=F " hide footer (gvim)
-
-  " no scrollbars no matter what
-  set guioptions-=r
-  set guioptions-=R
-  set guioptions-=l
-  set guioptions-=L
-
-endif
-
 "----------------------------------------------------------------------------
 " Abbreviations: Not as cool as TextMate snippets.
 "----------------------------------------------------------------------------
@@ -111,12 +82,6 @@ au BufNewFile,BufRead *.ru set filetype=ruby " rackup files are ruby
 " Misc Mappings
 "----------------------------------------------------------------------------
 
-" Turn off search highlights
-map <C-n> :noh<cr>
-
-" Toggle NERDTree
-map <leader>d :execute 'NERDTreeToggle ' . getcwd()<cr>
-
 " Updating .vimrc
 map <leader>ve :vs ~/.vimrc<cr>
 map <leader>vu :source ~/.vimrc<cr>:exe ":echo 'vimrc reloaded'"<cr>
@@ -130,13 +95,6 @@ map <leader>l <C-w>l
 " Run current file
 map <leader>rr :w<cr>:!ruby %<cr>
 map <leader>rp :w<cr>:!python %<cr>
-
-" FuzzyFinder Recursive hack from:
-" http://intraspirit.net/scratchpad/a-simple-fuzzyfinder-improvement/
-map <leader>t :FufFileRecursive<cr>
-
-" ShowFunc plugin
-map <leader>f <Plug>ShowFunc
 
 " Toggle spellcheck
 map <leader>s :set spell!<cr>
