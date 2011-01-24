@@ -74,7 +74,7 @@ inoremap <s-tab> <c-n>
 " Custom Filetypes
 "----------------------------------------------------------------------------
 
-filetype on
+filetype plugin indent on
 
 au BufNewFile,BufRead *.ru set filetype=ruby " rackup files are ruby
 
@@ -128,3 +128,11 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
 set smartcase
+
+" Restore cursor position
+if has("autocmd")
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+endif
