@@ -7,6 +7,10 @@ set nocompatible
 
 let mapleader=","
 
+" pathogen lets keep all our plugins contained in their own directory under
+" .vim/bundle. http://github.com/tpope/vim-pathogen
+call pathogen#runtime_append_all_bundles()
+
 "----------------------------------------------------------------------------
 " Indentation: 2 spaces is where it's at! Tabs are for communists.
 "----------------------------------------------------------------------------
@@ -29,7 +33,8 @@ set scrolloff=5   " keep 5 lines when scrolling
 
 set nowrap
 syntax on
-set statusline=%F%m%r\ %y\ [%l/%L\ %v]
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+set laststatus=2
 
 "----------------------------------------------------------------------------
 " Abbreviations: Not as cool as TextMate snippets.
@@ -74,6 +79,7 @@ inoremap <s-tab> <c-n>
 " Custom Filetypes
 "----------------------------------------------------------------------------
 
+filetype off " Force filetype to reload for pathogen
 filetype plugin indent on
 
 au BufNewFile,BufRead *.ru set filetype=ruby " rackup files are ruby
