@@ -112,6 +112,10 @@ vmap < <gv
 " NERD tree
 map <leader>d :NERDTreeToggle<cr>
 
+" FuzzyFinder
+" http://www.vim.org/scripts/script.php?script_id=1984
+map <leader>t :FufCoverageFile<cr>
+
 "----------------------------------------------------------------------------
 " Misc Settings
 "----------------------------------------------------------------------------
