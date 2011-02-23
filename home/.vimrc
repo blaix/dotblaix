@@ -116,6 +116,11 @@ map <leader>d :NERDTreeToggle<cr>
 " http://www.vim.org/scripts/script.php?script_id=1984
 map <leader>t :FufCoverageFile<cr>
 
+" copy/paste using system clipboard
+" thanks, bill!
+map <leader>v "+gP
+map <leader>c "+y
+
 "----------------------------------------------------------------------------
 " Misc Settings
 "----------------------------------------------------------------------------
