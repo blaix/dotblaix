@@ -151,6 +151,17 @@ map <leader>m :ZoomWin<cr>
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
+"----------------------------------------------------------------------------
+" GUI Settings
+"----------------------------------------------------------------------------
+
+if has("gui_running")
+  " No scrollbars
+  set guioptions-=r
+  set guioptions-=R
+  set guioptions-=l
+  set guioptions-=L
+end
 
 "----------------------------------------------------------------------------
 " Misc Settings
