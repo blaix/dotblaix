@@ -22,6 +22,9 @@ set autoindent
 set smartindent
 set expandtab
 
+" make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python set tabstop=4 textwidth=79
+
 "----------------------------------------------------------------------------
 " Layout: I can never decide if I want to roll light on dark or vice versa.
 "----------------------------------------------------------------------------
@@ -35,6 +38,26 @@ set nowrap
 syntax on
 set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%l,%v]\ [LEN=%L] 
 set laststatus=2
+
+" Turn wrap back on for text files.
+" This function is also used elsewhere.
+function s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+"----------------------------------------------------------------------------
+" Markdown: set up wrapping and preview. Too slick? Not possible.
+"----------------------------------------------------------------------------
+
+function s:setupMarkup()
+  call s:setupWrapping()
+  map <buffer> <Leader>p :Mm <CR>
+endfunction
+
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 
 "----------------------------------------------------------------------------
 " Abbreviations: Not as cool as TextMate snippets.
@@ -82,7 +105,7 @@ inoremap <s-tab> <c-n>
 filetype off " Force filetype to reload for pathogen
 filetype plugin indent on
 
-au BufNewFile,BufRead *.ru set filetype=ruby " rackup files are ruby
+au BufNewFile,BufRead {Gemfile,Rakefile,config.ru} set filetype=ruby
 
 "----------------------------------------------------------------------------
 " Misc Mappings
@@ -121,6 +144,14 @@ map <leader>t :FufCoverageFile<cr>
 map <leader>v "+gP
 map <leader>c "+y
 
+" Toggle ZoomWin
+map <leader>m :ZoomWin<cr>
+
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+
 "----------------------------------------------------------------------------
 " Misc Settings
 "----------------------------------------------------------------------------
@@ -140,8 +171,8 @@ set nowritebackup
 set ttyfast
 
 " enable wildmenu
-set wildmenu
-set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db
+set wildmode=list:longest,list:full
+set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db,.git,*.rbc,*.class,.svn
 
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
@@ -154,3 +185,6 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
 endif
+
+" Fix bug in ZoomWin (from carlhuda's janus)
+set noequalalways
