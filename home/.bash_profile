@@ -6,8 +6,8 @@ export CLICOLOR=1
 export AUTOFEATURE=true # always run cucumber features with autotest
 
 # Set up git tab completion and show branch name in command prompt
+#export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate slows things down
 source ~/.git-completion.bash
-export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
 
 alias tree="tree -C"
