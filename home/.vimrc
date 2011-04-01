@@ -39,6 +39,11 @@ syntax on
 set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%l,%v]\ [LEN=%L] 
 set laststatus=2
 
+if has("gui_running")
+  set background=light
+  colorscheme solarized
+end
+
 " Turn wrap back on for text files.
 " This function is also used elsewhere.
 function s:setupWrapping()
