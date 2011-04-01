@@ -42,6 +42,14 @@ set laststatus=2
 if has("gui_running")
   set background=light
   colorscheme solarized
+  set fuopt=maxvert,maxhorz " fullscreen should take up full screen
+ 
+  " No scrollbars or toolbars
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=R
+  set guioptions-=l
+  set guioptions-=L
 end
 
 " Turn wrap back on for text files.
@@ -155,18 +163,6 @@ map <leader>m :ZoomWin<cr>
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-"----------------------------------------------------------------------------
-" GUI Settings
-"----------------------------------------------------------------------------
-
-if has("gui_running")
-  " No scrollbars
-  set guioptions-=r
-  set guioptions-=R
-  set guioptions-=l
-  set guioptions-=L
-end
 
 "----------------------------------------------------------------------------
 " Misc Settings
