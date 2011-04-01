@@ -40,7 +40,7 @@ set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%l,%v
 set laststatus=2
 
 if has("gui_running")
-  set background=light
+  set background=dark
   colorscheme solarized
   set fuopt=maxvert,maxhorz " fullscreen should take up full screen
  
