@@ -200,3 +200,9 @@ endif
 
 " Fix bug in ZoomWin (from carlhuda's janus)
 set noequalalways
+
+" Include user/machine-specific vim config
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
