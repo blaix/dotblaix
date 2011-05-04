@@ -19,7 +19,3 @@
 
 [branch]
   autosetuprebase = always
-
-[core]
-  autocrlf = input
-  safecrlf = true
