@@ -21,6 +21,10 @@ if [[ `uname` == 'Darwin' && -s ~/.bash_profile.osx ]]; then
   source ~/.bash_profile.osx
 fi
 
+if [[ -s ~/.bash_profile.local ]]; then
+  source ~/.bash_profile.local
+fi
+
 if [[ -s ~/.rvm/scripts/rvm ]]; then
   source ~/.rvm/scripts/rvm;
 fi
