@@ -119,10 +119,14 @@ filetype off " Force filetype to reload for pathogen
 filetype plugin indent on
 
 au BufNewFile,BufRead {Gemfile,Rakefile,config.ru} set filetype=ruby
+au BufNewFile,BufRead {.txt} set filetype=markdown
 
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
+
+" Use jj to exit insert mode
+imap jj <Esc>
 
 " Updating .vimrc
 map <leader>ve :vs ~/.vimrc<cr>
