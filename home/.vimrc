@@ -125,6 +125,13 @@ au BufNewFile,BufRead {.txt} set filetype=markdown
 " Misc Mappings
 "----------------------------------------------------------------------------
 
+" Mimic TextMate's cmd-return (insert newline at end of line regardless of
+" cursor position):
+imap <D-CR> <C-O>o
+
+" Insert newline above current line
+imap <C-CR> <C-O>O
+
 " Use jj to exit insert mode
 imap jj <Esc>
 
