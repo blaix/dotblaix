@@ -26,6 +26,15 @@ set expandtab
 au FileType python set tabstop=4 textwidth=79
 
 "----------------------------------------------------------------------------
+" Code Folding
+"----------------------------------------------------------------------------
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+"----------------------------------------------------------------------------
 " Layout: I can never decide if I want to roll light on dark or vice versa.
 "----------------------------------------------------------------------------
 
@@ -60,6 +69,9 @@ function s:setupWrapping()
   set textwidth=72
 endfunction
 au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+" Automatically resize splits to be equal size
+set equalalways
 
 "----------------------------------------------------------------------------
 " Markdown: set up wrapping and preview. Too slick? Not possible.
