@@ -16,6 +16,7 @@ alias la="ls -a"
 alias lal="ls -al"
 alias ffopen="open -a Firefox.app"
 alias bpreload="source ~/.bash_profile"
+alias be="bundle exec"
 
 if [[ `uname` == 'Darwin' && -s ~/.bash_profile.osx ]]; then
   source ~/.bash_profile.osx
