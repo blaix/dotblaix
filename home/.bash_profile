@@ -1,6 +1,5 @@
 if [[ -f ~/.bashrc ]]; then source ~/.bashrc; fi
 
-export PATH="~/bin:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export EDITOR=vim
 export CLICOLOR=1
 export AUTOFEATURE=true # always run cucumber features with autotest
