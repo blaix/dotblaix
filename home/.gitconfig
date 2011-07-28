@@ -19,3 +19,6 @@
 
 [branch]
   autosetuprebase = always
+
+[core]
+  mergeoptions = "--no-commit"
