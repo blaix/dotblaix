@@ -7,7 +7,9 @@ export AUTOFEATURE=true # always run cucumber features with autotest
 # Set up git tab completion and show branch name in command prompt
 #export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate slows things down
 source ~/.git-completion.bash
-export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
+#export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
+# git AND rvm... too much info?
+export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt):\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"(%s)\")\[\033[01;36m\]\$\[\033[00m\] "
 
 alias tree="tree -C"
 alias ll="ls -l"
