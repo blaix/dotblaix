@@ -1,7 +1,9 @@
 begin
   require 'autotest/growl'
+  require 'redgreen/autotest'
+  require 'autotest/redgreen'
 rescue LoadError
-  # Don't really care if growl isn't around.
+  # Don't really care if that stuff isn't around.
 end
 
 Autotest.add_hook(:initialize) do |autotest|
