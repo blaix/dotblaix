@@ -14,7 +14,7 @@
 
 [github]
   user = blaix
-  token = *secret*
+  token = c93250bd13097a1f1b7f197f3c056915
 
 [branch]
   autosetuprebase = always
