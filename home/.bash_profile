@@ -5,11 +5,13 @@ export CLICOLOR=1
 export AUTOFEATURE=true # always run cucumber features with autotest
 
 # Set up git tab completion and show branch name in command prompt
-#export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate slows things down
+export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate can slow things down
 source ~/.git-completion.bash
-export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
-# git AND rvm... too much info?
-# export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt):\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"(%s)\")\[\033[01;36m\]\$\[\033[00m\] "
+export PS1="\[\033[01;34m\]\u@\h:\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"[%s]\")\[\033[01;36m\]\$\[\033[00m\] "
+# without colors...
+#export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
+# with rvm info...
+#export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt):\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"(%s)\")\[\033[01;36m\]\$\[\033[00m\] "
 
 alias tree="tree -C"
 alias ll="ls -l"
@@ -32,4 +34,5 @@ if [[ -s ~/.rvm/scripts/rvm ]]; then
   source ~/.rvm/scripts/rvm;
 fi
 
-eval "$(rbenv init -)"
+# going to back to rvm
+#eval "$(rbenv init -)"
