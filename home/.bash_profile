@@ -3,6 +3,7 @@ if [[ -f ~/.bashrc ]]; then source ~/.bashrc; fi
 export EDITOR=vim
 export CLICOLOR=1
 export AUTOFEATURE=true # always run cucumber features with autotest
+export P4CONFIG=".p4config"
 
 # Set up git tab completion and show branch name in command prompt
 export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate can slow things down
