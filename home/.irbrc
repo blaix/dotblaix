@@ -14,5 +14,7 @@ unless defined? ETC_IRBRC_LOADED
     puts "You didn't install interactive_editor and wirble! No biggie..."
   end
   
+  puts "Wouldn't you rather be using pry?"
+  
   ETC_IRBRC_LOADED=true
 end
