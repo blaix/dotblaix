@@ -21,6 +21,7 @@ alias lal="ls -al"
 alias ffopen="open -a Firefox.app"
 alias bpr="source ~/.bash_profile"
 alias be="bundle exec"
+alias bm="bundle && be rake db:migrate"
 alias prails="pry -r ./config/environment"
 alias temp="cd ~/temp"
 
