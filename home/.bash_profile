@@ -28,7 +28,7 @@ alias bm="bundle && be rake db:migrate"
 alias prails="pry -r ./config/environment"
 
 # django alias
-alias djsrv="./manage.py runserver"
+alias djsrv="./manage.py runserver 0.0.0.0:8000"
 alias djshl="./manage.py shell"
 alias djtst="./manage.py test"
 
