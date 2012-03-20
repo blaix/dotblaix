@@ -6,8 +6,7 @@
   st = status
   ci = commit -v
   gr = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
-  up = !git fetch origin && git rebase origin/master
-  ir = !git rebase -i origin/master
+  fu = !git fetch origin && git st && git log master..origin/master
 
 [user]
   name = Justin Blake
@@ -22,3 +21,4 @@
 
 [core]
   mergeoptions = "--no-commit"
+	excludesfile = /Users/jblake/.gitignore
