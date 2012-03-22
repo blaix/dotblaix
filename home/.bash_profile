@@ -53,19 +53,30 @@ fi
 
 # virtualenv setup
 source /usr/local/bin/virtualenvwrapper.sh
+
 # Auto activate virtual environments when .venv files are found.
+# Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
 has_virtualenv() {
   if [ -e .venv ]; then
-    workon `cat .venv`
+    # .venv should be [version]@[env name] (e.g. 2.6@my_project)
+    venv=`cat .venv`
+    # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
+    
+    # Bash is ugly. See "Substring Removal" section of
+    # <http://tldp.org/LDP/abs/html/string-manipulation.html>
+    python_version=${venv%@*} # strip everything after @ to get python version
+    virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
+    
+    pythonbrew use $python_version && pythonbrew venv use $virtualenv
   fi
 }
 venv_cd () {
   cd "$@" && has_virtualenv
 }
 alias cd=venv_cd
+
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 export VIRTUALENV_USE_DISTRIBUTE=true
 
 # TODO: a single cd wrapper that takes into account rvm and virtualenv.
-

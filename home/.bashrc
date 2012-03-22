@@ -22,3 +22,7 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
+
+# set up pythonbrew
+[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+alias pvm=pythonbrew
