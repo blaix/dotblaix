@@ -21,6 +21,8 @@ alias lal="ls -al"
 alias temp="cd ~/temp"
 alias ebp="vim ~/.bash_profile"
 alias rbp="source ~/.bash_profile"
+alias ntst=nosetests
+alias killpyc="find . -name '*.pyc' -delete"
 
 # rails aliases
 alias be="bundle exec"
@@ -31,6 +33,7 @@ alias prails="pry -r ./config/environment"
 alias djsrv="./manage.py runserver 0.0.0.0:8000"
 alias djshl="./manage.py shell"
 alias djtst="./manage.py test"
+alias djhrv="./manage.py harvest"
 
 # svn aliases
 alias svndf="svn diff | less"
