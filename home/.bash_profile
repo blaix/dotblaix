@@ -49,11 +49,6 @@ if [[ -s ~/.bash_profile.local ]]; then
   source ~/.bash_profile.local
 fi
 
-# rvm setup
-if [[ -s ~/.rvm/scripts/rvm ]]; then
-  source ~/.rvm/scripts/rvm;
-fi
-
 # virtualenv setup
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -81,5 +76,3 @@ alias cd=venv_cd
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 export VIRTUALENV_USE_DISTRIBUTE=true
-
-# TODO: a single cd wrapper that takes into account rvm and virtualenv.
