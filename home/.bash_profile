@@ -49,6 +49,10 @@ if [[ -s ~/.bash_profile.local ]]; then
   source ~/.bash_profile.local
 fi
 
+# enable rbenv shims and autocompletion
+# see: <https://github.com/sstephenson/rbenv>
+eval "$(rbenv init -)"
+
 # virtualenv setup
 source /usr/local/bin/virtualenvwrapper.sh
 
