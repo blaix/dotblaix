@@ -25,4 +25,3 @@ fi
 
 # set up pythonbrew
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
-alias pvm=pythonbrew
