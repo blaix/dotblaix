@@ -39,6 +39,11 @@ alias djhrv="./manage.py harvest"
 alias svndf="svn diff | less"
 alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 
+# pythonbrew aliases
+alias pvm="pythonbrew"
+alias mkpenv="pythonbrew venv create --no-site-packages"
+alias rmpenv="pythonbrew venv delete"
+
 # mac specific stuff
 if [[ `uname` == 'Darwin' && -s ~/.bash_profile.osx ]]; then
   source ~/.bash_profile.osx
