@@ -41,8 +41,12 @@ alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 
 # pythonbrew aliases
 alias pvm="pythonbrew"
-alias mkpenv="pythonbrew venv create --no-site-packages"
+alias lspenv="pythonbrew venv list"
 alias rmpenv="pythonbrew venv delete"
+mkpenv() {
+  pvm venv create --no-site-packages $1
+  pvm venv use $1
+}
 
 # mac specific stuff
 if [[ `uname` == 'Darwin' && -s ~/.bash_profile.osx ]]; then
@@ -77,7 +81,7 @@ has_virtualenv() {
     pythonbrew use $python_version && pythonbrew venv use $virtualenv
   fi
 }
-venv_cd () {
+venv_cd() {
   cd "$@" && has_virtualenv
 }
 alias cd=venv_cd
