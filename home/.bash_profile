@@ -43,8 +43,9 @@ alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 alias pvm="pythonbrew"
 alias lspenv="pythonbrew venv list"
 alias rmpenv="pythonbrew venv delete"
+alias _mkpenv="pvm venv create --no-site-packages"
 mkpenv() {
-  pvm venv create --no-site-packages $1
+  _mkpenv $1
   pvm venv use $1
 }
 
@@ -67,10 +68,10 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Auto activate virtual environments when .venv files are found.
 # Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
-has_virtualenv() {
-  if [ -e .venv ]; then
+has_pvmrc() {
+  if [ -e .pvmrc ]; then
     # .venv should be [version]@[env name] (e.g. 2.6@my_project)
-    venv=`cat .venv`
+    venv=`cat .pvmrc`
     # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
     
     # Bash is ugly. See "Substring Removal" section of
@@ -78,13 +79,15 @@ has_virtualenv() {
     python_version=${venv%@*} # strip everything after @ to get python version
     virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
     
-    pythonbrew use $python_version && pythonbrew venv use $virtualenv
+    pvm use $python_version
+    lspenv | grep $virtualenv >/dev/null || _mkpenv $virtualenv
+    pvm venv use $virtualenv
   fi
 }
-venv_cd() {
-  cd "$@" && has_virtualenv
+pvm_cd() {
+  cd "$@" && has_pvmrc
 }
-alias cd=venv_cd
+alias cd=pvm_cd
 
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
