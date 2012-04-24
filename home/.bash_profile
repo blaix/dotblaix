@@ -92,3 +92,10 @@ alias cd=pvm_cd
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 export VIRTUALENV_USE_DISTRIBUTE=true
+
+pypidir() {
+  # From http://stackoverflow.com/questions/122327/how-do-i-find-the-location-of-my-python-site-packages-directory
+  package_dir=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
+  
+  echo "$package_dir/$1"
+}
