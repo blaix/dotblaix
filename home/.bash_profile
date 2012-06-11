@@ -66,18 +66,18 @@ eval "$(rbenv init -)"
 # virtualenv setup
 source /usr/local/bin/virtualenvwrapper.sh
 
-# Auto activate virtual environments when .venv files are found.
-# Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
+# Automatically use python version and virtual environments when .pvmrc files
+# are found. Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
 has_pvmrc() {
   if [ -e .pvmrc ]; then
-    # .venv should be [version]@[env name] (e.g. 2.6@my_project)
-    venv=`cat .pvmrc`
+    # .pvmrc should be [version]@[env name] (e.g. 2.6@my_project)
+    pvmrc=`cat .pvmrc`
     # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
     
     # Bash is ugly. See "Substring Removal" section of
     # <http://tldp.org/LDP/abs/html/string-manipulation.html>
-    python_version=${venv%@*} # strip everything after @ to get python version
-    virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
+    python_version=${pvmrc%@*} # strip everything after @ to get python version
+    virtualenv=${pvmrc#*@} # strip everything before @ to get virtualenv name
     
     pvm use $python_version
     lspenv | grep $virtualenv >/dev/null || _mkpenv $virtualenv
