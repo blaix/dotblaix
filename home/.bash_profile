@@ -99,3 +99,9 @@ pypidir() {
   
   echo "$package_dir/$1"
 }
+
+resetpenv() {
+  deactivate
+  rmpenv $1
+  mkpenv $1
+}
