@@ -5,6 +5,10 @@ export CLICOLOR=1
 export P4CONFIG=".p4config"
 export DJANGO_ENV=development
 
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+export VIRTUALENV_USE_DISTRIBUTE=true
+
 # Set up git tab completion and show branch name in command prompt
 export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate can slow things down
 source ~/.git-completion.bash
@@ -88,10 +92,6 @@ pvm_cd() {
   cd "$@" && has_pvmrc
 }
 alias cd=pvm_cd
-
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-export VIRTUALENV_USE_DISTRIBUTE=true
 
 pypidir() {
   # From http://stackoverflow.com/questions/122327/how-do-i-find-the-location-of-my-python-site-packages-directory
