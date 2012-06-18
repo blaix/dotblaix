@@ -12,6 +12,7 @@ export VIRTUALENV_USE_DISTRIBUTE=true
 # Set up git tab completion and show branch name in command prompt
 export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate can slow things down
 source ~/.git-completion.bash
+source ~/.hub-completion.bash
 export PS1="\[\033[01;34m\]\u@\h:\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"[%s]\")\[\033[01;36m\]\$\[\033[00m\] "
 # without colors...
 #export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
@@ -27,6 +28,7 @@ alias ebp="vim ~/.bash_profile"
 alias rbp="source ~/.bash_profile"
 alias ntst=nosetests
 alias killpyc="find . -name '*.pyc' -delete"
+alias git=hub # https://github.com/defunkt/hub
 
 # rails aliases
 alias be="bundle exec"
@@ -34,10 +36,10 @@ alias bm="bundle && be rake db:migrate"
 alias prails="pry -r ./config/environment"
 
 # django alias
-alias djsrv="./manage.py runserver 0.0.0.0:8000"
-alias djshl="./manage.py shell"
-alias djtst="./manage.py test"
-alias djhrv="./manage.py harvest"
+alias djsrv="killpyc; ./manage.py runserver 0.0.0.0:8000"
+alias djshl="killpyc; ./manage.py shell"
+alias djtst="killpyc; ./manage.py test"
+alias djhrv="killpyc; ./manage.py harvest"
 
 # svn aliases
 alias svndf="svn diff | less"
