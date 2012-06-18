@@ -12,10 +12,6 @@
   name = Justin Blake
   email = justin@hentzia.com
 
-[github]
-  user = blaix
-  token = c93250bd13097a1f1b7f197f3c056915
-
 [branch]
   autosetuprebase = always
 
