@@ -32,7 +32,6 @@ au FileType python set tabstop=4 textwidth=79
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
 
 "----------------------------------------------------------------------------
 " Layout: I can never decide if I want to roll light on dark or vice versa.
@@ -47,19 +46,7 @@ set nowrap
 syntax on
 set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%l,%v]\ [LEN=%L] 
 set laststatus=2
-
-if has("gui_running")
-  set background=dark
-  colorscheme solarized
-  set fuopt=maxvert,maxhorz " fullscreen should take up full screen
- 
-  " No scrollbars or toolbars
-  set guioptions-=T
-  set guioptions-=r
-  set guioptions-=R
-  set guioptions-=l
-  set guioptions-=L
-end
+set background=dark
 
 " Turn wrap back on for text files.
 " This function is also used elsewhere.
@@ -69,9 +56,6 @@ function s:setupWrapping()
   set textwidth=72
 endfunction
 au BufRead,BufNewFile *.txt call s:setupWrapping()
-
-" Automatically resize splits to be equal size
-set equalalways
 
 "----------------------------------------------------------------------------
 " Markdown: set up wrapping and preview. Too slick? Not possible.
