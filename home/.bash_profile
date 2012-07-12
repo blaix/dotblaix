@@ -5,10 +5,6 @@ export CLICOLOR=1
 export P4CONFIG=".p4config"
 export DJANGO_ENV=development
 
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-export VIRTUALENV_USE_DISTRIBUTE=true
-
 # Set up git tab completion and show branch name in command prompt
 export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate can slow things down
 source ~/.git-completion.bash
@@ -55,6 +51,12 @@ mkpenv() {
   pvm venv use $1
 }
 
+resetpenv() {
+  deactivate
+  rmpenv $1
+  mkpenv $1
+}
+
 # mac specific stuff
 if [[ `uname` == 'Darwin' && -s ~/.bash_profile.osx ]]; then
   source ~/.bash_profile.osx
@@ -72,18 +74,18 @@ eval "$(rbenv init -)"
 # virtualenv setup
 source /usr/local/bin/virtualenvwrapper.sh
 
-# Automatically use python version and virtual environments when .pvmrc files
-# are found. Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
+# Auto activate virtual environments when .venv files are found.
+# Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
 has_pvmrc() {
   if [ -e .pvmrc ]; then
-    # .pvmrc should be [version]@[env name] (e.g. 2.6@my_project)
-    pvmrc=`cat .pvmrc`
+    # .venv should be [version]@[env name] (e.g. 2.6@my_project)
+    venv=`cat .pvmrc`
     # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
     
     # Bash is ugly. See "Substring Removal" section of
     # <http://tldp.org/LDP/abs/html/string-manipulation.html>
-    python_version=${pvmrc%@*} # strip everything after @ to get python version
-    virtualenv=${pvmrc#*@} # strip everything before @ to get virtualenv name
+    python_version=${venv%@*} # strip everything after @ to get python version
+    virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
     
     pvm use $python_version
     lspenv | grep $virtualenv >/dev/null || _mkpenv $virtualenv
@@ -95,15 +97,6 @@ pvm_cd() {
 }
 alias cd=pvm_cd
 
-pypidir() {
-  # From http://stackoverflow.com/questions/122327/how-do-i-find-the-location-of-my-python-site-packages-directory
-  package_dir=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
-  
-  echo "$package_dir/$1"
-}
-
-resetpenv() {
-  deactivate
-  rmpenv $1
-  mkpenv $1
-}
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+export VIRTUALENV_USE_DISTRIBUTE=true
