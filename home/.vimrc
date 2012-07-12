@@ -12,18 +12,22 @@ let mapleader=","
 call pathogen#runtime_append_all_bundles()
 
 "----------------------------------------------------------------------------
-" Indentation: 2 spaces is where it's at! Tabs are for communists.
+" Indentation: Tabs are for communists.
 "----------------------------------------------------------------------------
 
-set tabstop=2
-set smarttab
-set shiftwidth=2
-set autoindent
-set smartindent
-set expandtab
+set autoindent    " auto indent to same depth as previous line
+set smartindent   " and add an indent if needed
+set indentexpr="" " but don't reformat stuff I've already indented
+" at least I *think* that's what the above is doing...
 
-" make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python set tabstop=4 textwidth=79
+" 4-space soft tabs
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+
+set textwidth=79
+
+au FileType ruby set softtabstop=2 shiftwidth=2
 
 "----------------------------------------------------------------------------
 " Code Folding
@@ -126,8 +130,8 @@ imap <D-CR> <C-O>o
 " Insert newline above current line
 imap <C-CR> <C-O>O
 
-" Use jj to exit insert mode
-imap jj <Esc>
+" Use ;; to exit insert mode
+imap ;; <Esc>
 
 " Updating .vimrc
 map <leader>ve :vs ~/.vimrc<cr>
@@ -152,10 +156,6 @@ vmap < <gv
 
 " NERD tree
 map <leader>d :NERDTreeToggle<cr>
-
-" FuzzyFinder
-" http://www.vim.org/scripts/script.php?script_id=1984
-map <leader>t :FufCoverageFile<cr>
 
 " copy/paste using system clipboard
 " thanks, bill!
