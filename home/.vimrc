@@ -162,9 +162,6 @@ map <leader>t :FufCoverageFile<cr>
 map <leader>v "+gP
 map <leader>c "+y
 
-" Toggle ZoomWin
-map <leader>m :ZoomWin<cr>
-
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -203,8 +200,8 @@ if has("autocmd")
     \ endif
 endif
 
-" Fix bug in ZoomWin (from carlhuda's janus)
-set noequalalways
+" Make splits always the same size
+set equalalways
 
 " Include user/machine-specific vim config
 if filereadable(expand("~/.vimrc.local"))
