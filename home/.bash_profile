@@ -21,7 +21,6 @@ alias la="ls -a"
 alias lal="ls -al"
 alias temp="cd ~/temp"
 alias ebp="vim ~/.bash_profile"
-alias rbp="source ~/.bash_profile"
 alias ntst=nosetests
 alias killpyc="find . -name '*.pyc' -delete"
 alias git=hub # https://github.com/defunkt/hub
