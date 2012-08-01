@@ -56,6 +56,10 @@ resetpenv() {
   mkpenv $1
 }
 
+ppath() {
+  python -c "import os; import $1; print os.path.dirname($1.__file__)"
+}
+
 # mac specific stuff
 if [[ `uname` == 'Darwin' && -s ~/.bash_profile.osx ]]; then
   source ~/.bash_profile.osx
