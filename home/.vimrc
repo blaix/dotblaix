@@ -47,6 +47,7 @@ set ruler         " show current line/column number in status line
 set scrolloff=5   " keep 5 lines when scrolling
 
 set nowrap
+set t_Co=256
 syntax on
 set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%l,%v]\ [LEN=%L] 
 set laststatus=2
@@ -60,6 +61,10 @@ function s:setupWrapping()
   set textwidth=72
 endfunction
 au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+" Highlight right margin bg dark gray at 80 chars
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
 
 "----------------------------------------------------------------------------
 " Markdown: set up wrapping and preview. Too slick? Not possible.
