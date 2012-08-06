@@ -15,10 +15,8 @@ call pathogen#runtime_append_all_bundles()
 " Indentation: Tabs are for communists.
 "----------------------------------------------------------------------------
 
-set autoindent    " auto indent to same depth as previous line
-set smartindent   " and add an indent if needed
-set indentexpr="" " but don't reformat stuff I've already indented
-" at least I *think* that's what the above is doing...
+set autoindent " default indentation to that of the previous line
+filetype plugin indent on " enable filetype-based special indentation rules
 
 " 4-space soft tabs
 set expandtab
@@ -93,7 +91,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 \<CR>I want to <Up><Up><Right><Right>
 
 " ruby
-:iab def 
+au BufRead,BufNewFile *.rb :iab def 
 \def
 \<CR>end<Up>
 
@@ -117,9 +115,6 @@ inoremap <s-tab> <c-n>
 "----------------------------------------------------------------------------
 " Custom Filetypes
 "----------------------------------------------------------------------------
-
-filetype off " Force filetype to reload for pathogen
-filetype plugin indent on
 
 au BufNewFile,BufRead {Gemfile,Rakefile,config.ru} set filetype=ruby
 au BufNewFile,BufRead {.txt} set filetype=markdown
