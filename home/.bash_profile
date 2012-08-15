@@ -28,6 +28,10 @@ alias git=hub # https://github.com/defunkt/hub
 # rails aliases
 alias be="bundle exec"
 alias bm="bundle && be rake db:migrate"
+alias br="be rake"
+alias rs="be rspec"
+alias cu="be cucumber"
+alias rt="be rspec && be cucumber"
 alias prails="pry -r ./config/environment"
 
 # django alias
