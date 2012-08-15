@@ -123,12 +123,8 @@ au BufNewFile,BufRead {.txt} set filetype=markdown
 " Misc Mappings
 "----------------------------------------------------------------------------
 
-" Mimic TextMate's cmd-return (insert newline at end of line regardless of
-" cursor position):
-imap <D-CR> <C-O>o
-
-" Insert newline above current line
-imap <C-CR> <C-O>O
+" Switch to alternate buffer
+map <leader>a <C-^>
 
 " Use ;; to exit insert mode
 imap ;; <Esc>
@@ -156,6 +152,7 @@ vmap < <gv
 
 " NERD tree
 map <leader>d :NERDTreeToggle<cr>
+let NERDTreeQuitOnOpen=1
 
 " copy/paste using system clipboard
 " thanks, bill!
@@ -163,7 +160,6 @@ map <leader>v "+gP
 map <leader>c "+y
 
 " Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 "----------------------------------------------------------------------------
