@@ -25,7 +25,7 @@ set shiftwidth=4
 
 set textwidth=79
 
-au FileType ruby set softtabstop=2 shiftwidth=2
+au FileType ruby,cucumber,markdown set softtabstop=2 shiftwidth=2
 
 "----------------------------------------------------------------------------
 " Code Folding
