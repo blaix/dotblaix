@@ -150,10 +150,6 @@ map <leader>s :set spell!<cr>
 vmap > >gv
 vmap < <gv
 
-" NERD tree
-map <leader>d :NERDTreeToggle<cr>
-let NERDTreeQuitOnOpen=1
-
 " copy/paste using system clipboard
 " thanks, bill!
 map <leader>v "+gP
@@ -161,6 +157,17 @@ map <leader>c "+y
 
 " Opens an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+"---------------------------------------------------------------------------
+" Configure plugins
+"---------------------------------------------------------------------------
+
+" NERD tree
+map <leader>d :NERDTreeToggle<cr>
+let NERDTreeQuitOnOpen=1
+
+" Tagbar (like NERD tree but for ctags)
+map <leader>m :TagbarToggle<cr>
 
 "----------------------------------------------------------------------------
 " Misc Settings
