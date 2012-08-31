@@ -2,12 +2,12 @@
 " These must be first, because they change other options as a side effect.
 "----------------------------------------------------------------------------
 
-" Use Vim settings, rather then Vi settings (much better!).
+" Use Vim settings, rather then Vi settings
 set nocompatible
 
 let mapleader=","
 
-" pathogen lets keep all our plugins contained in their own directory under
+" pathogen lets you keep all our plugins contained in their own directory under
 " .vim/bundle. http://github.com/tpope/vim-pathogen
 call pathogen#runtime_append_all_bundles()
 
@@ -18,86 +18,62 @@ call pathogen#runtime_append_all_bundles()
 set autoindent " default indentation to that of the previous line
 filetype plugin indent on " enable filetype-based special indentation rules
 
-" 4-space soft tabs
+" 4-space soft tabs by default
 set expandtab
 set softtabstop=4
 set shiftwidth=4
 
-set textwidth=79
-
+" 2-spaces for ruby
 au FileType ruby,cucumber,markdown set softtabstop=2 shiftwidth=2
 
 "----------------------------------------------------------------------------
 " Code Folding
 "----------------------------------------------------------------------------
 
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
+set foldmethod=indent   " fold based on indent
+set foldnestmax=10      " deepest fold is 10 levels
+set nofoldenable        " dont fold by default
 
 "----------------------------------------------------------------------------
 " Layout: I can never decide if I want to roll light on dark or vice versa.
 "----------------------------------------------------------------------------
 
+syntax on         " enable syntax highlighting
+set nowrap        " disable line wrapping by default
 set number        " turn on line numbers
 set cursorline    " highlight current line
 set ruler         " show current line/column number in status line
 set scrolloff=5   " keep 5 lines when scrolling
+set t_Co=256      " use 256 colors
+set laststatus=2  " always show the status line
 
-set nowrap
-set t_Co=256
-syntax on
-set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%l,%v]\ [LEN=%L] 
-set laststatus=2
+" Status line has filepath + modified flag, then file type, ascii and hex
+" codes for character under cursor, and cursor row/column position.
+set statusline=%F%m\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%l,%v] 
+
+" Use Gary Bernhardt's custom DAS theme:
+" https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.vim
+" High contrast without having offensive colors. Perfect for my sucky eyes.
+" Especially nice using the Pastel color set with a large font in iTerm 2.
+color grb256
 set background=dark
-
-" Turn wrap back on for text files.
-" This function is also used elsewhere.
-function s:setupWrapping()
-  set wrap
-  set wm=2
-  set textwidth=72
-endfunction
-au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " Highlight right margin bg dark gray at 80 chars
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
 "----------------------------------------------------------------------------
-" Markdown: set up wrapping and preview. Too slick? Not possible.
+" Autocomplete: I should really expand on these...
 "----------------------------------------------------------------------------
 
-function s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Mm <CR>
-endfunction
-
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-
-"----------------------------------------------------------------------------
-" Abbreviations: Not as cool as TextMate snippets.
-"----------------------------------------------------------------------------
-
-" ERB
+" Close ERB tags
 :iab <%=   <%= %><Left><Left><Left>
 :iab <%   <% %><Left><Left><Left>
 
-" cucumber
-:iab fea 
-\Feature: 
-\<CR>  In order to
-\<CR>As a 
-\<CR>I want to <Up><Up><Right><Right>
-
-" ruby
+" Close ruby method defs
 au BufRead,BufNewFile *.rb :iab def 
 \def
 \<CR>end<Up>
-
-"----------------------------------------------------------------------------
-" Auto-complete: TextMate WISHES it could do this!
-"----------------------------------------------------------------------------
 
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://bitbucket.org/garybernhardt/dotfiles/src/tip/.vimrc)
@@ -113,11 +89,22 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 "----------------------------------------------------------------------------
-" Custom Filetypes
+" Set Custom Filetypes
 "----------------------------------------------------------------------------
 
 au BufNewFile,BufRead {Gemfile,Rakefile,config.ru} set filetype=ruby
 au BufNewFile,BufRead {.txt} set filetype=markdown
+
+"---------------------------------------------------------------------------
+" Configure plugins
+"---------------------------------------------------------------------------
+
+" NERD tree
+map <leader>d :NERDTreeToggle<cr>
+let NERDTreeQuitOnOpen=1
+
+" Tagbar (like NERD tree but for ctags)
+map <leader>m :TagbarToggle<cr>
 
 "----------------------------------------------------------------------------
 " Misc Mappings
@@ -126,11 +113,8 @@ au BufNewFile,BufRead {.txt} set filetype=markdown
 " Switch to alternate buffer
 map <leader>a <C-^>
 
-" Use ;; to exit insert mode
-imap ;; <Esc>
-
 " Updating .vimrc
-map <leader>ve :vs ~/.vimrc<cr>
+map <leader>ve :e ~/.vimrc<cr>
 map <leader>vu :source ~/.vimrc<cr>:exe ":echo 'vimrc reloaded'"<cr>
 
 " Viewport controls
@@ -158,17 +142,6 @@ map <leader>c "+y
 " Opens an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-"---------------------------------------------------------------------------
-" Configure plugins
-"---------------------------------------------------------------------------
-
-" NERD tree
-map <leader>d :NERDTreeToggle<cr>
-let NERDTreeQuitOnOpen=1
-
-" Tagbar (like NERD tree but for ctags)
-map <leader>m :TagbarToggle<cr>
-
 "----------------------------------------------------------------------------
 " Misc Settings
 "----------------------------------------------------------------------------
@@ -187,7 +160,7 @@ set nowritebackup
 " smoother changes
 set ttyfast
 
-" enable wildmenu
+" configure wildmenu
 set wildmode=list:longest,list:full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db,.git,*.rbc,*.class,.svn
 

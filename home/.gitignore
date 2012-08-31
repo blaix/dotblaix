@@ -3,3 +3,4 @@
 .venv
 .pvmrc
 *.egg-info
+.netrwhist
