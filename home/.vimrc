@@ -110,8 +110,14 @@ map <leader>m :TagbarToggle<cr>
 " Misc Mappings
 "----------------------------------------------------------------------------
 
+" Exit insert mode with ;;
+imap ;; <esc>
+
 " Switch to alternate buffer
 map <leader>a <C-^>
+
+" Rewrap current paragraph
+map q gq}
 
 " Updating .vimrc
 map <leader>ve :e ~/.vimrc<cr>
@@ -184,3 +190,13 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
+"-----------------------------------------------------------------------------
+" Gui Settings
+"-----------------------------------------------------------------------------
+if has("gui_running")
+
+    " use a big font and hide the toolbar
+    set guifont=Monaco:h14
+    set guioptions-=T
+
+endif
