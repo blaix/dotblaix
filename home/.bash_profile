@@ -24,6 +24,7 @@ alias ebp="vim ~/.bash_profile"
 alias ntst=nosetests
 alias killpyc="find . -name '*.pyc' -delete"
 alias git=hub # https://github.com/defunkt/hub
+alias grep="grep --color"
 
 # rails aliases
 alias be="bundle exec"
