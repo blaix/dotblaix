@@ -78,11 +78,11 @@ eval "$(rbenv init -)"
 # virtualenv setup
 source /usr/local/bin/virtualenvwrapper.sh
 
-# Auto activate virtual environments when .venv files are found.
+# Auto activate virtual environments when .pvmrc files are found.
 # Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
 has_pvmrc() {
   if [ -e .pvmrc ]; then
-    # .venv should be [version]@[env name] (e.g. 2.6@my_project)
+    # .pvmrc should be [version]@[env name] (e.g. 2.6@my_project)
     venv=`cat .pvmrc`
     # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
     
@@ -92,7 +92,7 @@ has_pvmrc() {
     virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
     
     pvm use $python_version
-    lspenv | grep $virtualenv >/dev/null || _mkpenv $virtualenv
+    lspenv | grep ^$virtualenv$ >/dev/null || _mkpenv $virtualenv
     pvm venv use $virtualenv
   fi
 }
