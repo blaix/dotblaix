@@ -106,6 +106,10 @@ let NERDTreeQuitOnOpen=1
 " Tagbar (like NERD tree but for ctags)
 map <leader>m :TagbarToggle<cr>
 
+" vim-markdown-preview needs a redraw until this gets pulled:
+" https://github.com/nelstrom/vim-markdown-preview/pull/3
+map mm :Mm<cr>:redraw!<cr>
+
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
