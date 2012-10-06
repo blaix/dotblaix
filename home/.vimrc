@@ -115,7 +115,8 @@ map mm :Mm<cr>:redraw!<cr>
 "----------------------------------------------------------------------------
 
 " Exit insert mode with ;;
-imap ;; <esc>
+" Giving remapped capslock=>esc a shot.
+" imap ;; <esc>
 
 " Switch to alternate buffer
 map <leader>a <C-^>
@@ -204,3 +205,4 @@ if has("gui_running")
     set guioptions-=T
 
 endif
+
