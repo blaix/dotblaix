@@ -1,5 +1,10 @@
 export PATH="$PATH:/usr/local/Cellar/python/2.7.1/bin"
 
+# Let vitality.vim (and others) know I'm still in iTerm when I ssh in
+# which I will be 99% of the time. We'll see if this causes a problem
+# for the 1%...
+export ITERM_PROFILE=Justin
+
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
 alias flushdns='dscacheutil -flushcache'
 alias ffopen="open -a Firefox.app"
