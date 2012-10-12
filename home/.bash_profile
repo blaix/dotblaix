@@ -48,13 +48,12 @@ if [[ -s ~/.rvm/scripts/rvm ]]; then
 fi
 
 # pythonbrew aliases
-alias pvm="pythonbrew"
-alias lspenv="pythonbrew venv list"
+alias pbrew="pythonbrew"
 alias rmpenv="pythonbrew venv delete"
-alias _mkpenv="pvm venv create --no-site-packages"
+
 mkpenv() {
-  _mkpenv $1
-  pvm venv use $1
+  pbrew venv create --no-site-packages $1
+  pbrew venv use $1
 }
 
 resetpenv() {
@@ -67,6 +66,34 @@ ppath() {
   python -c "import os; import $1; print os.path.dirname($1.__file__)"
 }
 
+
+# Auto activate virtual environments when .pbrewrc files are found.
+# Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
+has_pbrewrc() {
+  if [ -e .pbrewrc ]; then
+    # .pbrewrc should be [version]@[env name] (e.g. 2.6.5@my_project)
+    venv=`cat .pbrewrc`
+    # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
+    
+    # Bash is ugly. See "Substring Removal" section of
+    # <http://tldp.org/LDP/abs/html/string-manipulation.html>
+    python_version=${venv%@*} # strip everything after @ to get python version
+    virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
+    
+    pbrew use $python_version
+    lspenv | grep ^$virtualenv$ >/dev/null || _mkpenv $virtualenv
+    pbrew venv use $virtualenv
+  fi
+}
+pbrew_cd() {
+  cd "$@" && has_pbrewrc
+}
+alias cd=pbrew_cd
+
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+export VIRTUALENV_USE_DISTRIBUTE=true
+
 # mac specific stuff
 if [[ `uname` == 'Darwin' && -s ~/.bash_profile.osx ]]; then
   source ~/.bash_profile.osx
@@ -77,29 +104,3 @@ if [[ -s ~/.bash_profile.local ]]; then
   source ~/.bash_profile.local
 fi
 
-# Auto activate virtual environments when .pvmrc files are found.
-# Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
-has_pvmrc() {
-  if [ -e .pvmrc ]; then
-    # .pvmrc should be [version]@[env name] (e.g. 2.6@my_project)
-    venv=`cat .pvmrc`
-    # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
-    
-    # Bash is ugly. See "Substring Removal" section of
-    # <http://tldp.org/LDP/abs/html/string-manipulation.html>
-    python_version=${venv%@*} # strip everything after @ to get python version
-    virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
-    
-    pvm use $python_version
-    lspenv | grep ^$virtualenv$ >/dev/null || _mkpenv $virtualenv
-    pvm venv use $virtualenv
-  fi
-}
-pvm_cd() {
-  cd "$@" && has_pvmrc
-}
-alias cd=pvm_cd
-
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-export VIRTUALENV_USE_DISTRIBUTE=true
