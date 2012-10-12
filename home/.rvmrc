@@ -1,4 +1,2 @@
 export rvm_gemset_create_on_use_flag=1
 export rvm_project_rvmrc_default=1
-
-export rvm_path="/Users/jblake/.rvm"
