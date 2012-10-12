@@ -75,9 +75,6 @@ fi
 # see: <https://github.com/sstephenson/rbenv>
 eval "$(rbenv init -)"
 
-# virtualenv setup
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Auto activate virtual environments when .pvmrc files are found.
 # Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
 has_pvmrc() {
