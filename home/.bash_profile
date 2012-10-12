@@ -10,11 +10,11 @@ export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate can slow things down
 source ~/.git-completion.bash
 source ~/.hub-completion.bash
 # with colors...
-#export PS1="\[\033[01;34m\]\u@\h:\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"[%s]\")\[\033[01;36m\]\$\[\033[00m\] "
+export PS1="\[\033[01;34m\]\u@\h:\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"[%s]\")\[\033[01;36m\]\$\[\033[00m\] "
 # without colors...
 #export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
 # with rvm info...
-export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt):\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"(%s)\")\[\033[01;36m\]\$\[\033[00m\] "
+#export PS1="($(~/.rvm/bin/rvm-prompt))$PS1"
 
 alias tree="tree -C"
 alias ll="ls -l"
