@@ -5,9 +5,4 @@ export PATH="$PATH:/usr/local/Cellar/python/2.7.1/bin"
 # for the 1%...
 export ITERM_PROFILE=Justin
 
-alias vlc="/Applications/VLC.app/Contents/MacOS/VLC -I ncurses"
 alias flushdns='dscacheutil -flushcache'
-alias ffopen="open -a Firefox.app"
-
-# Use macvim's binary because it has ruby support
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
