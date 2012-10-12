@@ -23,8 +23,8 @@ set expandtab
 set softtabstop=4
 set shiftwidth=4
 
-" 2-spaces for ruby
-au FileType ruby,cucumber,markdown set softtabstop=2 shiftwidth=2
+" 2-spaces for some things
+au FileType ruby,cucumber,markdown,javascript set softtabstop=2 shiftwidth=2
 
 "----------------------------------------------------------------------------
 " Code Folding
