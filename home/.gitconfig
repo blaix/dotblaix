@@ -17,4 +17,4 @@
 
 [core]
   mergeoptions = "--no-commit"
-	excludesfile = /Users/jblake/.gitignore
+  excludesfile = ~/.gitignore
