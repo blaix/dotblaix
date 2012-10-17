@@ -16,7 +16,7 @@ export PS1="\[\033[01;34m\]\u@\h:\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"
 # with rvm info...
 #export PS1="($(~/.rvm/bin/rvm-prompt))$PS1"
 
-alias tree="tree -C"
+alias tree="tree -C | less -R"
 alias ll="ls -l"
 alias la="ls -a"
 alias lal="ls -al"
