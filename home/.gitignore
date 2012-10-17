@@ -4,3 +4,4 @@
 .pvmrc
 *.egg-info
 .netrwhist
+.pbrewrc
