@@ -50,9 +50,10 @@ fi
 # pythonbrew aliases
 alias pbrew="pythonbrew"
 alias rmpenv="pythonbrew venv delete"
+alias _mkpenv="pbrew venv create --no-site-packages $1"
 
 mkpenv() {
-  pbrew venv create --no-site-packages $1
+  _mkpenv $1
   pbrew venv use $1
 }
 
@@ -80,8 +81,8 @@ has_pbrewrc() {
     python_version=${venv%@*} # strip everything after @ to get python version
     virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
     
-    pbrew use $python_version
-    lspenv | grep ^$virtualenv$ >/dev/null || _mkpenv $virtualenv
+    pbrew use $python_version || return
+    pbrew venv list | grep ^$virtualenv$ >/dev/null || _mkpenv $virtualenv
     pbrew venv use $virtualenv
   fi
 }
