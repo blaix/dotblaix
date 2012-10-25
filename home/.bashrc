@@ -25,3 +25,5 @@ fi
 
 # set up pythonbrew
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
