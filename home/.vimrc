@@ -110,6 +110,10 @@ map <leader>m :TagbarToggle<cr>
 " https://github.com/nelstrom/vim-markdown-preview/pull/3
 map mm :Mm<cr>:redraw!<cr>
 
+" CommandT
+" Use T instead of t to flush first:
+map <leader>T :CommandTFlush<cr>:CommandT<cr>
+
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
