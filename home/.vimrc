@@ -111,8 +111,8 @@ map <leader>m :TagbarToggle<cr>
 map mm :Mm<cr>:redraw!<cr>
 
 " CommandT
-" Use T instead of t to flush first:
-map <leader>T :CommandTFlush<cr>:CommandT<cr>
+" Always flush. Doesn't seem to slow things down, but I'm keep my eye on it...
+map <leader>t :CommandTFlush<cr>:CommandT<cr>
 
 "----------------------------------------------------------------------------
 " Misc Mappings
