@@ -26,6 +26,7 @@ alias ntst=nosetests
 alias killpyc="find . -name '*.pyc' -delete"
 alias git=hub # https://github.com/defunkt/hub
 alias grep="grep --color"
+alias watch="watchr watch.rb"
 
 # rails aliases
 alias be="bundle exec"
