@@ -110,10 +110,6 @@ map <leader>m :TagbarToggle<cr>
 " https://github.com/nelstrom/vim-markdown-preview/pull/3
 map mm :Mm<cr>:redraw!<cr>
 
-" CommandT
-" Always flush. Doesn't seem to slow things down, but I'm keep my eye on it...
-map <leader>t :CommandTFlush<cr>:CommandT<cr>
-
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
@@ -189,6 +185,9 @@ if has("autocmd")
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+  " Strip trailing whitespace on save
+  autocmd FileType python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
 endif
 
 " Make splits always the same size
