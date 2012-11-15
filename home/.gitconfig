@@ -3,7 +3,7 @@
 
 [alias]
   co = checkout
-  st = status
+  st = status -sb
   ci = commit -v
   gr = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
   fu = !git fetch origin && git log master..origin/master && echo && git st
