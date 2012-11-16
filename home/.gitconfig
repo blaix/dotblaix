@@ -18,3 +18,5 @@
 [core]
   mergeoptions = "--no-commit"
   excludesfile = ~/.gitignore
+[rerere]
+	enabled = 1
