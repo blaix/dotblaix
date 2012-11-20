@@ -45,8 +45,10 @@ alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 
 # git aliases
 alias gs="git st"
-alias gl="git gr"
 alias gp="git push"
+alias gl="git gr"
+alias gla="git smart-log" # https://github.com/geelen/git-smart#smart-log
+alias gup="git smart-pull" # https://github.com/geelen/git-smart#smart-pull
 alias gco="git co"
 alias gci="git ci"
 
