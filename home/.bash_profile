@@ -43,6 +43,13 @@ alias djhrv="killpyc; ./manage.py harvest"
 alias svndf="svn diff | less"
 alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 
+# git aliases
+alias gs="git st"
+alias gl="git gr"
+alias gp="git push"
+alias gco="git co"
+alias gci="git ci"
+
 # enable rvm
 if [[ -s ~/.rvm/scripts/rvm ]]; then
     source ~/.rvm/scripts/rvm
