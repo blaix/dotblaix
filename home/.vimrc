@@ -157,6 +157,10 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Misc Settings
 "----------------------------------------------------------------------------
 
+" Highlight search results. Turn off when hitting enter
+set hlsearch
+nmap <cr> :nohlsearch<cr>
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
