@@ -44,7 +44,7 @@ alias svndf="svn diff | less"
 alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 
 # git aliases
-alias gs="git st"
+alias s="git st"
 alias gp="git push"
 alias gl="git gr"
 alias gla="git smart-log" # https://github.com/geelen/git-smart#smart-log
