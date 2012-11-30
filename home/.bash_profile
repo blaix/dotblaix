@@ -101,6 +101,10 @@ pbrew_cd() {
 }
 alias cd=pbrew_cd
 
+railz() {
+  rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
+}
+  
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 export VIRTUALENV_USE_DISTRIBUTE=true
