@@ -92,7 +92,7 @@ has_pbrewrc() {
     virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
     
     pbrew use $python_version || return
-    pbrew venv list | grep ^$virtualenv$ >/dev/null || _mkpenv $virtualenv
+    pbrew venv list | grep "^\s*$virtualenv$" >/dev/null || _mkpenv $virtualenv
     pbrew venv use $virtualenv
   fi
 }
