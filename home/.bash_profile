@@ -96,10 +96,13 @@ has_pbrewrc() {
     pbrew venv use $virtualenv
   fi
 }
-pbrew_cd() {
-  cd "$@" && has_pbrewrc
+
+# Aliasing builtins is poopy, especially when the alias calls the builtin
+# becasue when you source your bash_profile, it will create an infinite loop
+cd() {
+    builtin cd "$1" ;
+    has_pbrewrc
 }
-alias cd=pbrew_cd
 
 railz() {
   rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
