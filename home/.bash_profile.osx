@@ -6,3 +6,5 @@ export PATH="$PATH:/usr/local/Cellar/python/2.7.1/bin"
 export ITERM_PROFILE=Justin
 
 alias flushdns='dscacheutil -flushcache'
+alias psql_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+
