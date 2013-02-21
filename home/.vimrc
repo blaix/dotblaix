@@ -24,7 +24,7 @@ set softtabstop=4
 set shiftwidth=4
 
 " 2-spaces for some things
-au FileType ruby,cucumber,markdown,javascript set softtabstop=2 shiftwidth=2
+au FileType ruby,cucumber set softtabstop=2 shiftwidth=2
 
 "----------------------------------------------------------------------------
 " Code Folding
@@ -98,6 +98,8 @@ au BufNewFile,BufRead {*.md} set filetype=markdown
 "---------------------------------------------------------------------------
 " Configure plugins
 "---------------------------------------------------------------------------
+
+map <leader>T :CommandTFlush<cr>
 
 " NERD tree
 map <leader>d :NERDTreeToggle<cr>
