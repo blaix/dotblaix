@@ -1,4 +1,4 @@
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:~/.rbenv/bin:$PATH"
+export PATH="~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/sbin:~/.rbenv/bin:$PATH"
 
 SSH_ENV="$HOME/.ssh/environment"
 
