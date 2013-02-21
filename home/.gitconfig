@@ -7,6 +7,8 @@
   ci = commit -v
   gr = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
   fu = !git fetch origin && git log master..origin/master && echo && git st
+  fp = fetch -p # remove remote branches that no longer exist on the remote
+  pu = push -u # set up remote tracking of new branch automatically
 
 [user]
   name = Justin Blake
@@ -18,5 +20,6 @@
 [core]
   mergeoptions = "--no-commit"
   excludesfile = ~/.gitignore
+
 [rerere]
-	enabled = 1
+  enabled = 1
