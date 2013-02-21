@@ -28,16 +28,19 @@ alias git=hub # https://github.com/defunkt/hub
 alias grep="grep --color"
 alias watch="watchr watch.rb"
 
+# common pattern for work stuff:
+alias ve="source virtualenv/bin/activate"
+
 # rails aliases
 alias be="bundle exec"
 alias br="be rake"
 alias prails="pry -r ./config/environment"
 
 # django alias
-alias djsrv="killpyc; ./manage.py runserver 0.0.0.0:8000"
-alias djshl="killpyc; ./manage.py shell"
-alias djtst="killpyc; ./manage.py test"
-alias djhrv="killpyc; ./manage.py harvest"
+alias djsrv="killpyc; django_manage_command runserver 0.0.0.0:8000"
+alias djshl="killpyc; django_manage_command shell"
+alias djtst="killpyc; django_manage_command test"
+alias djhrv="killpyc; django_manage_command harvest"
 
 # svn aliases
 alias svndf="svn diff | less"
@@ -102,6 +105,16 @@ has_pbrewrc() {
 cd() {
     builtin cd $* ;
     has_pbrewrc
+}
+
+django_manage_command() {
+  cwd=${PWD##*/}
+  cmd="manage.py"
+  if [[ ! -s ./manage.py ]]; then
+    cmd="$cwd/$cmd"
+  fi
+  cmd="./$cmd $1"
+  $cmd
 }
 
 railz() {
