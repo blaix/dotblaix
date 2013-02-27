@@ -85,9 +85,15 @@ ppath() {
 # Auto activate virtual environments when .pbrewrc files are found.
 # Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
 has_pbrewrc() {
-  if [ -e .pbrewrc ]; then
     # .pbrewrc should be [version]@[env name] (e.g. 2.6.5@my_project)
-    venv=`cat .pbrewrc`
+    
+    # check current dir and parent dir for .pbrewrc, else eject goose
+    venv=`cat .pbrewrc 2>/dev/null`
+    if [[ $? != 0 ]]; then
+        venv=`cat ../.pbrewrc 2>/dev/null`
+    fi
+    if [ $? != 0 ]; then return; fi
+    
     # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
     
     # Bash is ugly. See "Substring Removal" section of
@@ -98,7 +104,6 @@ has_pbrewrc() {
     pbrew use $python_version || return
     pbrew venv list | grep "^\s*$virtualenv$" >/dev/null || _mkpenv $virtualenv
     pbrew venv use $virtualenv
-  fi
 }
 
 # Aliasing builtins is poopy, especially when the alias calls the builtin
