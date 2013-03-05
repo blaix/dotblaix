@@ -105,7 +105,11 @@ has_pbrewrc() {
 # Aliasing builtins is poopy, especially when the alias calls the builtin
 # becasue when you source your bash_profile, it will create an infinite loop
 cd() {
-    builtin cd "$*" ;
+    if [[ "$*" == "" ]]; then
+        builtin cd
+    else
+        builtin cd "$*"
+    fi
     has_pbrewrc
 }
 
