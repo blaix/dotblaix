@@ -56,11 +56,6 @@ alias gup="git smart-pull" # https://github.com/geelen/git-smart#smart-pull
 alias gco="git co"
 alias gci="git ci"
 
-# enable rvm
-if [[ -s ~/.rvm/scripts/rvm ]]; then
-    source ~/.rvm/scripts/rvm
-fi
-
 # pythonbrew aliases
 alias pbrew="pythonbrew"
 alias rmpenv="pythonbrew venv delete"
@@ -145,3 +140,7 @@ if [[ -s ~/.bash_profile.local ]]; then
   source ~/.bash_profile.local
 fi
 
+# enable rvm
+if [[ -s ~/.rvm/scripts/rvm ]]; then
+    source ~/.rvm/scripts/rvm
+fi
