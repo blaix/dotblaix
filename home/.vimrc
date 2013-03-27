@@ -112,13 +112,13 @@ map <leader>m :TagbarToggle<cr>
 " https://github.com/nelstrom/vim-markdown-preview/pull/3
 map mm :Mm<cr>:redraw!<cr>
 
+" https://github.com/t9md/vim-ruby-xmpfilter
+map <buffer> <leader>rm <Plug>(xmpfilter-mark)
+map <buffer> <leader>rr <Plug>(xmpfilter-run)
+
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
-
-" Exit insert mode with ;;
-" Giving remapped capslock=>esc a shot.
-" imap ;; <esc>
 
 " Switch to alternate buffer
 map <leader>a <C-^>
@@ -137,7 +137,8 @@ map <leader>k <C-w>k
 map <leader>l <C-w>l
 
 " Run current file
-map <leader>rr :w<cr>:!ruby %<cr>
+" (prefer xmpfilter instead)
+" map <leader>rr :w<cr>:!ruby %<cr>
 map <leader>rp :w<cr>:!python %<cr>
 
 " Toggle spellcheck
@@ -159,9 +160,8 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Misc Settings
 "----------------------------------------------------------------------------
 
-" Highlight search results. Turn off when hitting enter
+" Highlight search results.
 set hlsearch
-nmap <cr> :nohlsearch<cr>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
