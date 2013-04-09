@@ -7,9 +7,34 @@ set nocompatible
 
 let mapleader=","
 
-" pathogen lets you keep all our plugins contained in their own directory under
-" .vim/bundle. http://github.com/tpope/vim-pathogen
-call pathogen#runtime_append_all_bundles()
+"----------------------------------------------------------------------------
+" Set up Vundle: https://github.com/gmarik/vundle
+" see :h vundle for more details or wiki for FAQ
+"----------------------------------------------------------------------------
+
+ filetype off " required!
+
+ set rtp+=~/.vim/bundle/vundle/
+ call vundle#rc()
+
+" Note: comments after Bundle command are not allowed..
+
+" let Vundle manage Vundle. Required! 
+ Bundle 'gmarik/vundle'
+
+" my bundles:
+Bundle 'vim-scripts/Command-T'
+Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-fugitive'
+Bundle 'nelstrom/vim-markdown-preview'
+Bundle 't9md/vim-ruby-xmpfilter'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+
+filetype plugin indent on " required!
 
 "----------------------------------------------------------------------------
 " Indentation: Tabs are for communists.
@@ -113,6 +138,7 @@ map <leader>m :TagbarToggle<cr>
 map mm :Mm<cr>:redraw!<cr>
 
 " https://github.com/t9md/vim-ruby-xmpfilter
+" You must gem install rcodetools
 map <buffer> <leader>rm <Plug>(xmpfilter-mark)
 map <buffer> <leader>rr <Plug>(xmpfilter-run)
 
