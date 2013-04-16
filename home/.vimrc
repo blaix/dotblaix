@@ -23,7 +23,6 @@ let mapleader=","
  Bundle 'gmarik/vundle'
 
 " my bundles:
-Bundle 'vim-scripts/Command-T'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'kchmck/vim-coffee-script'
@@ -33,6 +32,8 @@ Bundle 'nelstrom/vim-markdown-preview'
 Bundle 't9md/vim-ruby-xmpfilter'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'jakar/vim-json'
 
 filetype plugin indent on " required!
 
@@ -100,6 +101,9 @@ au BufRead,BufNewFile *.rb :iab def
 \def
 \<CR>end<Up>
 
+" Close html tags by typing </ and hitting space
+:iab </ </<C-x><C-o>
+
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://bitbucket.org/garybernhardt/dotfiles/src/tip/.vimrc)
 function! InsertTabWrapper()
@@ -124,11 +128,12 @@ au BufNewFile,BufRead {*.md} set filetype=markdown
 " Configure plugins
 "---------------------------------------------------------------------------
 
-map <leader>T :CommandTFlush<cr><leader>t
+map <leader>t :CtrlP<cr>
 
 " NERD tree
 map <leader>d :NERDTreeToggle<cr>
 let NERDTreeQuitOnOpen=1
+let NERDTreeIgnore = ['\.pyc$']
 
 " Tagbar (like NERD tree but for ctags)
 map <leader>m :TagbarToggle<cr>
