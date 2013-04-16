@@ -105,15 +105,6 @@ has_pbrewrc() {
     pbrew venv use $virtualenv
 }
 
-# RVM handles these automatically, but our pbrewrc stuff breaks that.
-# which is fine because I don't like the "execute everythin!" way that
-# rvm handled it. So we're just going to support version@gemset files
-# just like we do for pythonbrew:
-has_rvmrc() {
-    renv=`cat .rvmrc 2>/dev/null`
-    if [[ $renv != "" ]]; then rvm $renv; fi
-}
-
 # Aliasing builtins is poopy, especially when the alias calls the builtin
 # becasue when you source your bash_profile, it will create an infinite loop
 cd() {
@@ -123,7 +114,7 @@ cd() {
         builtin cd "$*"
     fi
     has_pbrewrc
-    has_rvmrc
+    __rvm_project_rvmrc
 }
 
 django_manage_command() {
