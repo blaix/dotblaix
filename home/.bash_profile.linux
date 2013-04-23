@@ -1,0 +1,1 @@
+alias iptables_restore="sudo /sbin/iptables-restore < /etc/iptables.firewall.rules"

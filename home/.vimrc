@@ -19,8 +19,13 @@ let mapleader=","
 
 " Note: comments after Bundle command are not allowed..
 
-" let Vundle manage Vundle. Required! 
- Bundle 'gmarik/vundle'
+" Vundle is required for vundle!
+"
+" Normally this would come first, but I'm keeping
+" vundle under version control so I don't to clone it
+" separately in addition to my dotfiles.
+"
+" Bundle 'gmarik/vundle'
 
 " my bundles:
 Bundle 'scrooloose/nerdtree'
@@ -87,6 +92,9 @@ set background=dark
 " Highlight right margin bg dark gray at 80 chars
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
+
+" Don't unerline html links. Looks crazy in django/rails templates.
+hi link htmlLink NONE
 
 "----------------------------------------------------------------------------
 " Autocomplete: I should really expand on these...
