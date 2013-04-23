@@ -39,7 +39,7 @@ alias br="be rake"
 alias prails="pry -r ./config/environment"
 
 # django alias
-alias djsrv="killpyc; django_manage_command runserver 0.0.0.0:8000"
+alias djsrv="killpyc; django_manage_command runserver"
 alias djshl="killpyc; django_manage_command shell"
 alias djtst="killpyc; django_manage_command test"
 alias djhrv="killpyc; django_manage_command harvest"
@@ -124,7 +124,7 @@ django_manage_command() {
   if [[ ! -s ./manage.py ]]; then
     cmd="$cwd/$cmd"
   fi
-  cmd="./$cmd $1"
+  cmd="./$cmd $*"
   $cmd
 }
 
