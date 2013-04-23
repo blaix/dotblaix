@@ -23,6 +23,7 @@ alias la="ls -a"
 alias lal="ls -al"
 alias temp="cd ~/temp"
 alias ebp="vim ~/.bash_profile"
+alias rbp="source ~/.bash_profile"
 alias ntst=nosetests
 alias killpyc="find . -name '*.pyc' -delete"
 alias git=hub # https://github.com/defunkt/hub
@@ -138,6 +139,11 @@ export VIRTUALENV_USE_DISTRIBUTE=true
 # mac specific stuff
 if [[ `uname` == 'Darwin' && -s ~/.bash_profile.osx ]]; then
   source ~/.bash_profile.osx
+fi
+
+# linux specific stuff
+if [[ `uname` == 'Linux' && -s ~/.bash_profile.linux ]]; then
+  source ~/.bash_profile.linux
 fi
 
 # machine specific stuff
