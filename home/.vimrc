@@ -39,6 +39,8 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'jakar/vim-json'
+Bundle 'groenewege/vim-less'
+Bundle 'othree/html5.vim'
 
 filetype plugin indent on " required!
 
@@ -64,6 +66,7 @@ au FileType ruby,cucumber,haml,coffee set softtabstop=2 shiftwidth=2
 set foldmethod=indent   " fold based on indent
 set foldnestmax=10      " deepest fold is 10 levels
 set nofoldenable        " dont fold by default
+set foldlevel=1
 
 "----------------------------------------------------------------------------
 " Layout: I can never decide if I want to roll light on dark or vice versa.
@@ -142,10 +145,13 @@ au BufNewFile,BufRead {*.md} set filetype=markdown
 "---------------------------------------------------------------------------
 
 map <leader>t :CtrlP<cr>
+map <leader>T :CtrlPClearAllCaches<cr>:CtrlP<cr>
 
 " NERD tree
+map <leader>f :NERDTreeFind<cr>
 map <leader>d :NERDTreeToggle<cr>
 let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$']
 
 " Tagbar (like NERD tree but for ctags)
@@ -163,6 +169,8 @@ map <buffer> <leader>rr <Plug>(xmpfilter-run)
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
+
+map <enter> :nohlsearch<cr>
 
 " Switch to alternate buffer
 map <leader>a <C-^>
@@ -199,6 +207,10 @@ map <leader>c "+y
 
 " Opens an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Run ruby tests from vim
+map <c-j>     :w<cr>:!clear<cr>:!rspec && cucumber<cr>
+map <leader>r :w<cr>:!clear<cr>:!rspec %<cr>
 
 "----------------------------------------------------------------------------
 " Misc Settings
@@ -258,4 +270,3 @@ if has("gui_running")
     set guioptions-=T
 
 endif
-
