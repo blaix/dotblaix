@@ -27,7 +27,8 @@ alias rbp="source ~/.bash_profile"
 alias ntst=nosetests
 alias killpyc="find . -name '*.pyc' -delete"
 alias git=hub # https://github.com/defunkt/hub
-alias grep="grep --color"
+alias grep="grep --color=always"
+alias less="less -R"
 alias watch="watchr watch.rb"
 
 # common pattern for work stuff:
