@@ -26,3 +26,5 @@
 
 [github]
   user = blaix
+[diff]
+	algorithm = patience
