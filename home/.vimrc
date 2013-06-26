@@ -41,6 +41,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'jakar/vim-json'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
+Bundle 'vim-scripts/EasyGrep'
+" Bundle 'mileszs/ack.vim'
 
 filetype plugin indent on " required!
 
@@ -166,11 +168,16 @@ map mm :Mm<cr>:redraw!<cr>
 map <buffer> <leader>rm <Plug>(xmpfilter-mark)
 map <buffer> <leader>rr <Plug>(xmpfilter-run)
 
+" EasyGrep
+let EasyGrepRecursive=1
+let EasyGrepSearchCurrentBufferDir=0
+
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
 
-map <enter> :nohlsearch<cr>
+" need a better mapping for this that doesn't kill debug windows nav...
+" map <enter> :nohlsearch<cr>
 
 " Switch to alternate buffer
 map <leader>a <C-^>
