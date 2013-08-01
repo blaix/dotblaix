@@ -42,7 +42,6 @@ Bundle 'jakar/vim-json'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/EasyGrep'
-" Bundle 'mileszs/ack.vim'
 
 filetype plugin indent on " required!
 
@@ -141,11 +140,16 @@ inoremap <s-tab> <c-n>
 
 au BufNewFile,BufRead {Gemfile,Rakefile,config.ru} set filetype=ruby
 au BufNewFile,BufRead {*.md} set filetype=markdown
+au BufNewFile,BufRead {*.template} set filetype=html
 
 "---------------------------------------------------------------------------
 " Configure plugins
 "---------------------------------------------------------------------------
 
+" Gist: https://github.com/mattn/gist-vim
+let g:gist_post_private = 1 " private by default
+
+" CtrlP
 map <leader>t :CtrlP<cr>
 map <leader>T :CtrlPClearAllCaches<cr>:CtrlP<cr>
 
@@ -222,6 +226,11 @@ map <leader>r :w<cr>:!clear<cr>:!rspec %<cr>
 "----------------------------------------------------------------------------
 " Misc Settings
 "----------------------------------------------------------------------------
+
+" Hide buffers instead of closing them.
+" This lets me switch buffers without saving,
+" and maintains undo history.
+set hidden
 
 " Highlight search results.
 set hlsearch
