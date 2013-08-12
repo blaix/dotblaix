@@ -43,6 +43,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'kana/vim-fakeclip'
+Bundle 'nono/vim-handlebars'
 
 filetype plugin indent on " required!
 
