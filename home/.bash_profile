@@ -39,6 +39,15 @@ alias be="bundle exec"
 alias br="be rake"
 alias prails="pry -r ./config/environment"
 
+# run binary from project's node_modules/.bin dir
+# ex: ne coffee
+# see http://stackoverflow.com/a/15157360/193813
+# alias ne="PATH=$(npm bin):$PATH"
+# above alias not working for me, using function instead:
+ne() {
+    $(npm bin)/$*
+}
+
 # django alias
 alias djsrv="killpyc; django_manage_command runserver"
 alias djshl="killpyc; django_manage_command shell"
@@ -128,6 +137,7 @@ django_manage_command() {
   cmd="./$cmd $*"
   $cmd
 }
+alias djm=django_manage_command
 
 railz() {
   rails new $1 -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb
