@@ -42,6 +42,7 @@ Bundle 'jakar/vim-json'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/EasyGrep'
+Bundle 'kana/vim-fakeclip'
 
 filetype plugin indent on " required!
 
