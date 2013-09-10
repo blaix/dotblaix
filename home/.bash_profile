@@ -117,9 +117,7 @@ has_pbrewrc() {
     pbrew venv use $virtualenv
 }
 
-# Aliasing builtins is poopy, especially when the alias calls the builtin
-# becasue when you source your bash_profile, it will create an infinite loop
-cd() {
+my_cd() {
     if [[ "$*" == "" ]]; then
         builtin cd
     else
@@ -128,6 +126,8 @@ cd() {
     has_pbrewrc
     __rvm_project_rvmrc
 }
+
+alias cd=my_cd
 
 django_manage_command() {
   cwd=${PWD##*/}
