@@ -189,7 +189,7 @@ let EasyGrepSearchCurrentBufferDir=0
 map <leader>a <C-^>
 
 " Rewrap current paragraph
-map q gq}
+map Q gq}
 
 " Updating .vimrc
 map <leader>ve :e ~/.vimrc<cr>
