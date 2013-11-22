@@ -44,6 +44,7 @@ Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'kana/vim-fakeclip'
 Bundle 'nono/vim-handlebars'
+Bundle 'sandeepcr529/Buffet.vim'
 
 filetype plugin indent on " required!
 
@@ -177,6 +178,9 @@ map <buffer> <leader>rr <Plug>(xmpfilter-run)
 " EasyGrep
 let EasyGrepRecursive=1
 let EasyGrepSearchCurrentBufferDir=0
+
+" Buffet.vim
+map <leader>b :Bufferlist<cr>
 
 "----------------------------------------------------------------------------
 " Misc Mappings
