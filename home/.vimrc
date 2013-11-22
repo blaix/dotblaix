@@ -144,6 +144,7 @@ inoremap <s-tab> <c-n>
 au BufNewFile,BufRead {Gemfile,Rakefile,config.ru} set filetype=ruby
 au BufNewFile,BufRead {*.md} set filetype=markdown
 au BufNewFile,BufRead {*.template} set filetype=html
+au BufNewFile,BufRead {*.hbs} set filetype=handlebars
 
 "---------------------------------------------------------------------------
 " Configure plugins
