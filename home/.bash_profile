@@ -71,7 +71,7 @@ alias gci="git ci"
 # pythonbrew aliases
 alias pbrew="pythonbrew"
 alias rmpenv="pythonbrew venv delete"
-alias _mkpenv="pbrew venv create --no-site-packages $1"
+alias _mkpenv="pythonbrew venv create $1"
 
 mkpenv() {
   _mkpenv $1
