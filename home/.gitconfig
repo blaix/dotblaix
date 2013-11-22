@@ -9,6 +9,7 @@
   fu = !git fetch origin && git log master..origin/master && echo && git st
   fp = fetch -p # remove remote branches that no longer exist on the remote
   pu = push -u # set up remote tracking of new branch automatically
+  lg = log -p
 
 [user]
   name = Justin Blake
