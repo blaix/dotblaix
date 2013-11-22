@@ -258,7 +258,7 @@ set ttyfast
 
 " configure wildmenu
 set wildmode=list:longest,list:full
-set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db,.git,*.rbc,*.class,.svn
+set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db,.git,*.rbc,*.class,.svn,*/collected_static/*,*/node_modules/*
 
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
