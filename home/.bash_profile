@@ -125,6 +125,7 @@ my_cd() {
     fi
     has_pbrewrc
     __rvm_project_rvmrc
+    return 0
 }
 
 alias cd=my_cd
@@ -136,6 +137,7 @@ django_manage_command() {
     cmd="$cwd/$cmd"
   fi
   cmd="./$cmd $*"
+  cd . # activate pbrewrc
   $cmd
 }
 alias djm=django_manage_command
