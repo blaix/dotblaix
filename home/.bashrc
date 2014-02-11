@@ -1,4 +1,4 @@
-export PATH="~/bin:~/.local/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/sbin:$PATH"
+export PATH="~/bin:~/.local/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH"
 
 # TODO: why did I add this ssh stuff?
 # it breaks ssh agent forwarding...
