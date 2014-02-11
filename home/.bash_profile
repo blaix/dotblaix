@@ -68,22 +68,6 @@ alias gup="git smart-pull" # https://github.com/geelen/git-smart#smart-pull
 alias gco="git co"
 alias gci="git ci"
 
-# pythonbrew aliases
-alias pbrew="pythonbrew"
-alias rmpenv="pythonbrew venv delete"
-alias _mkpenv="pythonbrew venv create $1"
-
-mkpenv() {
-  _mkpenv $1
-  pbrew venv use $1
-}
-
-resetpenv() {
-  deactivate
-  rmpenv $1
-  mkpenv $1
-}
-
 ppath() {
   python -c "import os; import $1; print os.path.dirname($1.__file__)"
 }
@@ -93,43 +77,6 @@ if [[ -s ~/.rvm/scripts/rvm ]]; then
     source ~/.rvm/scripts/rvm
 fi
 
-# Auto activate virtual environments when .pbrewrc files are found.
-# Assumes use of pythonbrew <https://github.com/utahta/pythonbrew>
-has_pbrewrc() {
-    # .pbrewrc should be [version]@[env name] (e.g. 2.6.5@my_project)
-    
-    # check current dir and parent dir for .pbrewrc, else eject goose
-    venv=`cat .pbrewrc 2>/dev/null`
-    if [[ $? != 0 ]]; then
-        venv=`cat ../.pbrewrc 2>/dev/null`
-    fi
-    if [ $? != 0 ]; then return; fi
-    
-    # TODO: Allow some flexibility (e.g. not specifying a virtualenv)
-    
-    # Bash is ugly. See "Substring Removal" section of
-    # <http://tldp.org/LDP/abs/html/string-manipulation.html>
-    python_version=${venv%@*} # strip everything after @ to get python version
-    virtualenv=${venv#*@} # strip everything before @ to get virtualenv name
-    
-    pbrew use $python_version || return
-    pbrew venv list | grep "^\s*$virtualenv$" >/dev/null || _mkpenv $virtualenv
-    pbrew venv use $virtualenv
-}
-
-my_cd() {
-    if [[ "$*" == "" ]]; then
-        builtin cd
-    else
-        builtin cd "$*"
-    fi
-    has_pbrewrc
-    __rvm_project_rvmrc
-    return 0
-}
-
-alias cd=my_cd
-
 django_manage_command() {
   cwd=${PWD##*/}
   cmd="manage.py"
@@ -137,7 +84,7 @@ django_manage_command() {
     cmd="$cwd/$cmd"
   fi
   cmd="./$cmd $*"
-  cd . # activate pbrewrc
+  cd . # activate local virtualenv
   $cmd
 }
 alias djm=django_manage_command
@@ -169,3 +116,8 @@ fi
 ne() {
     $(npm bin)/$*
 }
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
