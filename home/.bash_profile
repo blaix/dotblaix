@@ -8,9 +8,9 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # Set up git tab completion and show branch name in command prompt
 export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate can slow things down
-source ~/.git-prompt.sh
-source ~/.git-completion.bash
-source ~/.hub-completion.bash
+# ubuntu: git stuff should work with a normal apt-get install git
+# osx/homebrew: git completion/prompt stuff is sourced in .bash_profile.osx
+source ~/.hub-completion.bash # stored in homesick castle
 # with colors...
 export PS1="\[\033[01;34m\]\u@\h:\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"[%s]\")\[\033[01;36m\]\$\[\033[00m\] "
 # without colors...
