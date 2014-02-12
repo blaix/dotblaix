@@ -8,5 +8,5 @@ export ITERM_PROFILE=Justin
 alias flushdns='dscacheutil -flushcache'
 alias psql_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 
-source `brew --prefix`/etc/.git-prompt.sh
-source `brew --prefix`/etc/.git-completion.bash
+source `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+source `brew --prefix`/etc/bash_completion.d/git-completion.bash
