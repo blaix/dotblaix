@@ -121,3 +121,36 @@ ne() {
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+my_pyenv_version() {
+    current_version=`pyenv version`
+    current_version="${current_version%% *}"
+    echo $current_version
+}
+my_pyenv_prompt() {
+    current_version=`my_pyenv_version`
+    if [[ $current_version == "system" || $current_version =~ ^[0-9] ]]; then
+        echo ""
+    else
+        echo "($current_version)"
+    fi
+}
+PS1="\$(my_pyenv_prompt)"$PS1
+create_and_use_venv() {
+    if [ -z "$1" ]; then
+        # no args, use current version
+        use_version=`my_pyenv_version`
+        echo $use_version
+    else
+        # version specified as first arg
+        use_version=$1
+    fi
+    # install version if needed:
+    if ! pyenv versions | grep -q $use_version; then
+        pyenv install $use_version
+    fi
+    # create and use the venv "dir_name-version"
+    venv_name="${PWD##*/}-$use_version"
+    pyenv virtualenv $use_version $venv_name
+    pyenv local $venv_name
+}
+alias venv=create_and_use_venv
