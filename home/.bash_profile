@@ -72,11 +72,6 @@ ppath() {
   python -c "import os; import $1; print os.path.dirname($1.__file__)"
 }
 
-# enable rvm
-if [[ -s ~/.rvm/scripts/rvm ]]; then
-    source ~/.rvm/scripts/rvm
-fi
-
 django_manage_command() {
   cwd=${PWD##*/}
   cmd="manage.py"
@@ -154,3 +149,7 @@ create_and_use_venv() {
     pyenv local $venv_name
 }
 alias venv=create_and_use_venv
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
