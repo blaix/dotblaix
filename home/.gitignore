@@ -5,3 +5,4 @@
 *.egg-info
 .netrwhist
 .pbrewrc
+.python-version
