@@ -3,6 +3,7 @@ export CLICOLOR=1
 export P4CONFIG=".p4config"
 export DJANGO_ENV=development
 export PYTHONSTARTUP=~/.pythonrc
+export PATH=~/bin:$PATH
 
 # Set up git tab completion and show branch name in command prompt
 export GIT_PS1_SHOWDIRTYSTATE=1 # dirtystate can slow things down
