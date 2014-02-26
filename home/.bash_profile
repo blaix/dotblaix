@@ -50,10 +50,18 @@ ne() {
 }
 
 # django alias
-alias djsrv="killpyc; django_manage_command runserver"
 alias djshl="killpyc; django_manage_command shell"
 alias djtst="killpyc; django_manage_command test"
 alias djhrv="killpyc; django_manage_command harvest"
+djsrv() { # djsrv [port number]
+    if [ -z "$1" ]; then
+        port=8000
+    else
+        port=$1
+    fi
+    killpyc
+    django_manage_command runserver 0.0.0.0:$port
+}
 
 # svn aliases
 alias svndf="svn diff | less"
