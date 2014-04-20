@@ -154,10 +154,6 @@ create_and_use_venv() {
     venv_name="${PWD##*/}-$use_version"
     pyenv virtualenv $use_version $venv_name
     pyenv local $venv_name
-    # for now, install the latest M2Crypto. The one that gets installed as a
-    # dependency to our yola stuff has a bug in Ubuntu 12.04, but I don't want
-    # to explcitly add it as a requirement because I don't know the details.
-    pip install M2Crypto
 }
 alias venv=create_and_use_venv
 
