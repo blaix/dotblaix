@@ -12,10 +12,10 @@ let mapleader=","
 " see :h vundle for more details or wiki for FAQ
 "----------------------------------------------------------------------------
 
- filetype off " required!
+filetype off " required!
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
 " Note: comments after Bundle command are not allowed..
 
@@ -29,28 +29,22 @@ let mapleader=","
 
 " my bundles:
 Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-jdaddy.git'
-Bundle 'nelstrom/vim-markdown-preview'
-Bundle 't9md/vim-ruby-xmpfilter'
-Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'jakar/vim-json'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/EasyGrep'
-Bundle 'kana/vim-fakeclip'
 Bundle 'nono/vim-handlebars'
 Bundle 'sandeepcr529/Buffet.vim'
 
 filetype plugin indent on " required!
 
 "----------------------------------------------------------------------------
-" Indentation: Tabs are for communists.
+" Indentation:
 "----------------------------------------------------------------------------
 
 set autoindent " default indentation to that of the previous line
@@ -69,12 +63,10 @@ au FileType ruby,cucumber,haml,coffee set softtabstop=2 shiftwidth=2
 "----------------------------------------------------------------------------
 
 set foldmethod=indent   " fold based on indent
-set foldnestmax=10      " deepest fold is 10 levels
 set nofoldenable        " dont fold by default
-set foldlevel=1
 
 "----------------------------------------------------------------------------
-" Layout: I can never decide if I want to roll light on dark or vice versa.
+" Layout:
 "----------------------------------------------------------------------------
 
 syntax on         " enable syntax highlighting
@@ -143,7 +135,7 @@ inoremap <s-tab> <c-n>
 "----------------------------------------------------------------------------
 
 au BufNewFile,BufRead {Gemfile,Rakefile,Guardfile,config.ru} set filetype=ruby
-au BufNewFile,BufRead {*.md} set filetype=markdown
+au BufNewFile,BufRead {*.md} set filetype=text
 au BufNewFile,BufRead {*.template} set filetype=html
 au BufNewFile,BufRead {*.hbs} set filetype=handlebars
 
@@ -168,15 +160,6 @@ let NERDTreeIgnore = ['\.pyc$']
 " Tagbar (like NERD tree but for ctags)
 map <leader>m :TagbarToggle<cr>
 
-" vim-markdown-preview needs a redraw until this gets pulled:
-" https://github.com/nelstrom/vim-markdown-preview/pull/3
-map mm :Mm<cr>:redraw!<cr>
-
-" https://github.com/t9md/vim-ruby-xmpfilter
-" You must gem install rcodetools
-map <buffer> <leader>rm <Plug>(xmpfilter-mark)
-map <buffer> <leader>rr <Plug>(xmpfilter-run)
-
 " EasyGrep
 let EasyGrepRecursive=1
 let EasyGrepSearchCurrentBufferDir=0
@@ -188,9 +171,6 @@ map <leader>b :Bufferlist<cr>
 " Misc Mappings
 "----------------------------------------------------------------------------
 
-" need a better mapping for this that doesn't kill debug windows nav...
-" map <enter> :nohlsearch<cr>
-
 " Switch to alternate buffer
 map <leader>a <C-^>
 
@@ -201,17 +181,6 @@ map Q gq}
 map <leader>ve :e ~/.vimrc<cr>
 map <leader>vu :source ~/.vimrc<cr>:exe ":echo 'vimrc reloaded'"<cr>
 
-" Viewport controls
-map <leader>h <C-w>h
-map <leader>j <C-w>j
-map <leader>k <C-w>k
-map <leader>l <C-w>l
-
-" Run current file
-" (prefer xmpfilter instead)
-" map <leader>rr :w<cr>:!ruby %<cr>
-map <leader>rp :w<cr>:!python %<cr>
-
 " Toggle spellcheck
 map <leader>s :set spell!<cr>
 
@@ -219,17 +188,8 @@ map <leader>s :set spell!<cr>
 vmap > >gv
 vmap < <gv
 
-" copy/paste using system clipboard
-" thanks, bill!
-map <leader>v "+gP
-map <leader>c "+y
-
 " Opens an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Run ruby tests from vim
-map <c-j>     :w<cr>:!clear<cr>:!rspec && cucumber<cr>
-map <leader>r :w<cr>:!clear<cr>:!rspec %<cr>
 
 "----------------------------------------------------------------------------
 " Misc Settings
@@ -257,16 +217,12 @@ set nowritebackup
 " smoother changes
 set ttyfast
 
-" configure wildmenu
-set wildmode=list:longest,list:full
-set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.ds_store,*.db,.git,*.rbc,*.class,.svn,*/collected_static/*,*/node_modules/*
-
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
 set smartcase
 
-" Restore cursor position
 if has("autocmd")
+  " Restore cursor position
   autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
@@ -294,18 +250,3 @@ if has("gui_running")
     set guioptions-=T
 
 endif
-
-"-----------------------------------------------------------------------------
-" Highlight words to avoid in tech writing
-"-----------------------------------------------------------------------------
-"
-"   obviously, basically, simply, of course, clearly,
-"   just, everyone knows, However, So, easy
-"
-"   http://css-tricks.com/words-avoid-educational-writing/
-highlight TechWordsToAvoid ctermbg=red ctermfg=white
-match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|\<just\>\|everyone\sknows\|however\|so,\|easy/
-autocmd BufWinEnter * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|\<just\>\|everyone\sknows\|however,\|so,\|easy/
-autocmd InsertEnter * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|\<just\>\|everyone\sknows\|however,\|so,\|easy/
-autocmd InsertLeave * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|\<just\>\|everyone\sknows\|however,\|so,\|easy/
-autocmd BufWinLeave * call clearmatches()
