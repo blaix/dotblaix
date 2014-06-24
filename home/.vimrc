@@ -40,6 +40,7 @@ Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'nono/vim-handlebars'
 Bundle 'sandeepcr529/Buffet.vim'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on " required!
 
