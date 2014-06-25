@@ -68,12 +68,7 @@ alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 
 # git aliases
 alias s="git st"
-alias gp="git push"
-alias gl="git gr"
-alias gla="git smart-log" # https://github.com/geelen/git-smart#smart-log
-alias gup="git smart-pull" # https://github.com/geelen/git-smart#smart-pull
-alias gco="git co"
-alias gci="git ci"
+alias gfo="git fetch origin"
 
 ppath() {
   python -c "import os; import $1; print os.path.dirname($1.__file__)"
