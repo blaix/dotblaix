@@ -68,6 +68,7 @@ alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 
 # git aliases
 alias s="git st"
+alias d="git diff"
 alias gfo="git fetch origin"
 
 ppath() {
