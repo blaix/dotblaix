@@ -242,6 +242,17 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
+" Change cursor shape in different modes.
+" Options:
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> underscore
+" 5 -> blinking vertical bar
+" 6 -> solid vertical bar
+let &t_SI .= "\<Esc>[6 q" " solid vertical bar in insert mode
+let &t_EI .= "\<Esc>[2 q" " solid block in normal mode
+
 "-----------------------------------------------------------------------------
 " Gui Settings
 "-----------------------------------------------------------------------------
