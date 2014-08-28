@@ -71,6 +71,8 @@ alias s="git st"
 alias d="git diff"
 alias gfo="git fetch origin"
 alias gup="git smart-pull" # https://github.com/geelen/git-smart#smart-pull
+alias gcm="git checkout master"
+alias gmo="git merge origin/master"
 
 ppath() {
   python -c "import os; import $1; print os.path.dirname($1.__file__)"
