@@ -29,18 +29,17 @@ call vundle#rc()
 
 " my bundles:
 Bundle 'scrooloose/nerdtree'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-jdaddy.git'
 Bundle 'mattn/gist-vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'nono/vim-handlebars'
-Bundle 'sandeepcr529/Buffet.vim'
 Bundle 'majutsushi/tagbar'
+
+" required for gist-vim:
 Bundle 'mattn/webapi-vim'
 
 filetype plugin indent on " required!
@@ -59,13 +58,6 @@ set shiftwidth=4
 
 " 2-spaces for some things
 au FileType ruby,cucumber,haml,coffee set softtabstop=2 shiftwidth=2
-
-"----------------------------------------------------------------------------
-" Code Folding
-"----------------------------------------------------------------------------
-
-set foldmethod=indent   " fold based on indent
-set nofoldenable        " dont fold by default
 
 "----------------------------------------------------------------------------
 " Layout:
@@ -119,26 +111,11 @@ au BufRead,BufNewFile *.rb :iab class
 " Close html tags by typing </ and hitting space
 :iab </ </<C-x><C-o>
 
-" Remap the tab key to do autocompletion or indentation depending on the
-" context (from http://bitbucket.org/garybernhardt/dotfiles/src/tip/.vimrc)
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
-
 "----------------------------------------------------------------------------
 " Set Custom Filetypes
 "----------------------------------------------------------------------------
 
 au BufNewFile,BufRead {Gemfile,Rakefile,Guardfile,config.ru} set filetype=ruby
-au BufNewFile,BufRead {*.md} set filetype=text
-au BufNewFile,BufRead {*.template} set filetype=html
 au BufNewFile,BufRead {*.hbs} set filetype=handlebars
 
 "---------------------------------------------------------------------------
@@ -172,12 +149,6 @@ map <leader>b :Bufferlist<cr>
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
-
-" Switch to alternate buffer
-map <leader>a <C-^>
-
-" Rewrap current paragraph
-map Q gq}
 
 " Updating .vimrc
 map <leader>ve :e ~/.vimrc<cr>
