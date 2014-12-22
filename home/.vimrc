@@ -31,6 +31,7 @@ call vundle#rc()
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
 Bundle 'mattn/gist-vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'groenewege/vim-less'
