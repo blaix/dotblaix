@@ -14,8 +14,6 @@ source ~/.hub-completion.bash # stored in homesick castle
 export PS1="\[\033[01;34m\]\u@\h:\[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \"[%s]\")\[\033[01;36m\]\$\[\033[00m\] "
 # without colors...
 #export PS1='\u@\h:\w$(__git_ps1 "[%s]")\$ '
-# with rvm info...
-#export PS1="($(~/.rvm/bin/rvm-prompt))$PS1"
 
 alias tree="tree -C | less -R"
 alias ll="ls -l"
@@ -160,6 +158,5 @@ create_and_use_venv() {
 }
 alias venv=create_and_use_venv
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+alias gpg=gpg2
