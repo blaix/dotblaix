@@ -149,10 +149,6 @@ map <leader>vu :source ~/.vimrc<cr>:exe ":echo 'vimrc reloaded'"<cr>
 " Toggle spellcheck
 map <leader>s :set spell!<cr>
 
-" retain selection after increasing/decreasing indent
-vmap > >gv
-vmap < <gv
-
 " Opens an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
