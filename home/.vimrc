@@ -99,16 +99,6 @@ hi link htmlLink NONE
 :iab <%=   <%= %><Left><Left><Left>
 :iab <%   <% %><Left><Left><Left>
 
-" Close ruby method defs
-au BufRead,BufNewFile *.rb :iab def 
-\def
-\<CR>end<Up>
-
-" Close ruby class defs
-au BufRead,BufNewFile *.rb :iab class 
-\class
-\<CR>end<Up><Right><Right>
-
 " Close html tags by typing </ and hitting space
 :iab </ </<C-x><C-o>
 
