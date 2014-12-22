@@ -108,6 +108,8 @@ hi link htmlLink NONE
 
 au BufNewFile,BufRead {Gemfile,Rakefile,Guardfile,config.ru} set filetype=ruby
 au BufNewFile,BufRead {*.hbs} set filetype=handlebars
+au BufNewFile,BufReadPost {*.md} set filetype=markdown
+au BufNewFile,BufRead {*.liquid} set filetype=html
 
 "---------------------------------------------------------------------------
 " Configure plugins
