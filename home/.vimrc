@@ -119,8 +119,7 @@ au BufNewFile,BufRead {*.liquid} set filetype=html
 let g:gist_post_private = 1 " private by default
 
 " CtrlP
-map <leader>t :CtrlP<cr>
-map <leader>T :CtrlPClearAllCaches<cr>:CtrlP<cr>
+map <leader>t :CtrlPClearAllCaches<cr>:CtrlP<cr>
 
 " NERD tree
 map <leader>f :NERDTreeFind<cr>
