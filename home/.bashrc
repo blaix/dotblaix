@@ -28,6 +28,8 @@ alias git=hub # https://github.com/defunkt/hub
 alias grep="grep --color=always"
 alias less="less -R"
 alias watch="watchr watch.rb"
+alias sshagent="eval \$(ssh-agent); ssh-add"
+alias gpg=gpg2
 
 # common pattern for work stuff:
 alias ve="source virtualenv/bin/activate"
@@ -156,7 +158,7 @@ create_and_use_venv() {
 alias venv=create_and_use_venv
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-alias gpg=gpg2
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
