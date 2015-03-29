@@ -58,7 +58,7 @@ set softtabstop=4
 set shiftwidth=4
 
 " 2-spaces for some things
-au FileType ruby,cucumber,haml,coffee,json set softtabstop=2 shiftwidth=2
+au FileType ruby,cucumber,haml,coffee,js,json,yaml set softtabstop=2 shiftwidth=2
 
 "----------------------------------------------------------------------------
 " Layout:
