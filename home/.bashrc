@@ -157,3 +157,10 @@ alias venv=create_and_use_venv
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias gpg=gpg2
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Added by Yola's local-bootstrap
+export YOLA_SRC=~/work/
