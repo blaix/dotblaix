@@ -175,10 +175,6 @@ set nowritebackup
 " smoother changes
 set ttyfast
 
-" Make searches case-sensitive only if they contain upper-case characters
-set ignorecase
-set smartcase
-
 if has("autocmd")
   " Restore cursor position
   autocmd BufReadPost *
