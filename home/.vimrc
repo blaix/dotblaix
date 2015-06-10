@@ -39,6 +39,7 @@ Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'nono/vim-handlebars'
 Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
 
 " required for gist-vim:
 Bundle 'mattn/webapi-vim'
@@ -77,16 +78,12 @@ set laststatus=2  " always show the status line
 " codes for character under cursor, and cursor row/column position.
 set statusline=%F%m\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%l,%v] 
 
-" Use Gary Bernhardt's custom DAS theme:
-" https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.vim
-" High contrast without having offensive colors. Perfect for my sucky eyes.
-" Especially nice using the Pastel color set with a large font in iTerm 2.
-color grb256
-set background=dark
+color solarized
+set background=light
 
 " Highlight right margin bg dark gray at 80 chars
 set colorcolumn=80
-highlight ColorColumn ctermbg=233
+highlight ColorColumn ctermbg=lightgray
 
 " Don't unerline html links. Looks crazy in django/rails templates.
 hi link htmlLink NONE
