@@ -40,6 +40,7 @@ Bundle 'vim-scripts/EasyGrep'
 Bundle 'nono/vim-handlebars'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'elixir-lang/vim-elixir'
 
 " required for gist-vim:
 Bundle 'mattn/webapi-vim'
