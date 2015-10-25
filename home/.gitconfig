@@ -18,6 +18,9 @@
 [branch]
   autosetuprebase = always
 
+[branch "master"]
+  mergeoptions = --ff-only
+
 [core]
   mergeoptions = "--no-commit"
   excludesfile = ~/.gitignore
