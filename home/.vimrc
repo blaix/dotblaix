@@ -68,12 +68,14 @@ au FileType ruby,cucumber,haml,coffee,js,json,yaml set softtabstop=2 shiftwidth=
 
 syntax on         " enable syntax highlighting
 set nowrap        " disable line wrapping by default
-set number        " turn on line numbers
 set cursorline    " highlight current line
 set ruler         " show current line/column number in status line
 set scrolloff=5   " keep 5 lines when scrolling
 set t_Co=256      " use 256 colors
 set laststatus=2  " always show the status line
+
+" Use relative line numbers,
+set relativenumber
 
 " Status line has filepath + modified flag, then file type, ascii and hex
 " codes for character under cursor, and cursor row/column position.
