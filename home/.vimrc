@@ -138,6 +138,9 @@ let EasyGrepSearchCurrentBufferDir=0
 " Buffet.vim
 map <leader>b :Bufferlist<cr>
 
+" NerdTree
+let NERDTreeIgnore=['__pycache__', '\~$']
+
 "----------------------------------------------------------------------------
 " Misc Mappings
 "----------------------------------------------------------------------------
