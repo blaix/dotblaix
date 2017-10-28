@@ -130,6 +130,7 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " Tagbar (like NERD tree but for ctags)
 map <leader>m :TagbarToggle<cr>
+set tags=.tags
 
 " EasyGrep
 let EasyGrepRecursive=1

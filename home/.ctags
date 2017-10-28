@@ -1,0 +1,4 @@
+--recurse=yes
+--exclude=.git
+--tag-relative=yes
+-f .tags
