@@ -30,7 +30,6 @@ alias less="less -R"
 alias watch="watchr watch.rb"
 alias sshagent="eval \$(ssh-agent); ssh-add"
 alias gpg=gpg2
-alias c=clear
 
 # common pattern for work stuff:
 alias ve="source virtualenv/bin/activate"
