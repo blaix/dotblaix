@@ -71,7 +71,7 @@ alias svnaa="svn st | awk '/^\?/ { print \$2 }' | xargs svn add"
 # git aliases
 alias s="git st"
 alias d="git diff"
-alias gfo="git fetch origin"
+alias gfo="git fetch origin -p"
 
 ppath() {
   python -c "import os; import $1; print os.path.dirname($1.__file__)"
