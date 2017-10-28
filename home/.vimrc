@@ -156,6 +156,8 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Misc Settings
 "----------------------------------------------------------------------------
 
+set wildignore+=*/node_modules/*,*/build/*
+
 " Hide buffers instead of closing them.
 " This lets me switch buffers without saving,
 " and maintains undo history.
