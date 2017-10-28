@@ -51,7 +51,8 @@ ne() {
 
 # django alias
 alias djshl="killpyc; django_manage_command shell"
-alias djtst="killpyc; django_manage_command test"
+alias djtest="killpyc; django_manage_command test --noinput"
+alias djinttest="killpyc; INTEGRATION_TESTS=1 django_manage_command test --noinput"
 alias djhrv="killpyc; django_manage_command harvest"
 djsrv() { # djsrv [port number]
     if [ -z "$1" ]; then
